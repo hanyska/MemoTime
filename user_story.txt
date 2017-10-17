@@ -1,0 +1,18 @@
+Jako u¿ytwkonik chce mieæ mo¿liwoœæ:
+- dodawania projektów, bo wtedy lepiej zorganizujê swój czas, 
+- tworzenia podprojektów, bo umo¿liwi mi to lepsze zarz¹dzanie z³o¿onymi projektami, 
+- dodawania zadañ do projektów bo pozwoli mi siê to skupiuæ na jednym zadaniu, 
+- u¿ytkownik ma mo¿liwoœæ zarejstrowania siê, dziêki czemu bêdzie móg³ korzytaæ z managera zadañ, 
+- zalogowania siê do aplikacji za pomoc¹ adresu email lub  loginu, oraz has³a.
+- dodawania specjalnych dat(np. urodziny) ze specjaln¹ ikonk¹ aby wzrokowo widzieæ wa¿ne dla mnie daty,
+- priorytetowania zadañ, bo pozwoli mi to widzieæ co jest wa¿niejsze do zrobienia, 
+- widoku kalendarza, aby graficznie zobaczyæ rozk³ad swoich zadañ, 
+- przypomiannaia mi o zadaniach do wykonania, bo nie chce o niczym zapomnieæ,
+- drukowania zadañ/projektów, aby np. powiesiæ je sobie na lodówce, aby mi przypomina³y o tym co jest do zrobienia,
+- usuwania zadañ, które s¹ zbêdne i nie chce ich realizaowaæ, 
+- zaznaczania zadañ, które zosta³y wykonane, bo bêdê widzia³, co ju¿ zosta³o zrobione, 
+- widoku zadañ, których nie wykona³em, by lepiej planowaæ swój czas, 
+- etykietowania zadañ, bo pomo¿e mi to szybciej szukaæ zadañ, które mam do wykonania (np. kontekst - w domu)
+- dodawania podzadañ do zadania, dziêki czemu bede móg³ tworzyæ tzw. checklisty, 
+- dodawania komentarzy do zadañ, bo bêdê dodatkowo opisaæ to co jest do zrobienia w danym zadaniu, 
+- wysy³ania dziennego zrzutu zadañ na email, bo chce mieæ widok moich zadañ bo czasem nie bêdê mieæ dostêpu do komputera,
