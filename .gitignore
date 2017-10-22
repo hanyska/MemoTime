@@ -8,3 +8,4 @@ src/MemoTime.Infrastructure/bin/
 src/MemoTime.Infrastructure/obj/
 
 .idea/
+.gitignore
