@@ -1,0 +1,14 @@
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Api.deps.json
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Api.runtimeconfig.json
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Api.runtimeconfig.dev.json
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Api.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Api.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Core.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Infrastructure.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Infrastructure.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/bin/Debug/netcoreapp2.0/MemoTime.Core.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/obj/Debug/netcoreapp2.0/MemoTime.Api.csproj.CoreCompileInputs.cache
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/obj/Debug/netcoreapp2.0/MemoTime.Api.AssemblyInfoInputs.cache
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/obj/Debug/netcoreapp2.0/MemoTime.Api.AssemblyInfo.cs
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/obj/Debug/netcoreapp2.0/MemoTime.Api.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.Api/obj/Debug/netcoreapp2.0/MemoTime.Api.pdb
