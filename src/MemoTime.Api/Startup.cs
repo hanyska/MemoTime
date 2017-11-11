@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MemoTime.Api.Framework;
 using MemoTime.Core.Repositories;
 using MemoTime.Infrastructure.Repositories;
 using MemoTime.Infrastructure.Services;
@@ -40,6 +41,7 @@ namespace MemoTime.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UserErrorHandlerMiddleware();
             app.UseMvc();
         }
     }

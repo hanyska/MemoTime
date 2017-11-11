@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MemoTime.Core.Domain;
 using MemoTime.Core.Repositories;
+using MemoTime.Infrastructure.Exceptions;
 using MemoTime.Infrastructure.Services.Interfaces;
 
 namespace MemoTime.Infrastructure.Services
@@ -21,14 +22,14 @@ namespace MemoTime.Infrastructure.Services
 
             if (user != null)
             {
-                throw new Exception($"User with username: '{email}' already exists.");
+                throw new ServiceException(Exceptions.ErrorCodes.EmailInUse, $"Email '{email} is already in use.'");
             }
 
             user = await _userRepository.GetByUsernameAsync(username);
 
             if (user != null)
             {
-                throw new Exception($"User with username: '{username}' already exists.");
+                throw new ServiceException(Exceptions.ErrorCodes.UsernameInUser, $"Username '{username} is already in use.'");
             }
             
             user = new User(id, username, email, password, "salt");

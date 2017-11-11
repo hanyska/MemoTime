@@ -7,6 +7,10 @@
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
         </e>
+        <e p="Framework" t="Include">
+          <e p="ErrorHandlerMiddleware.cs" t="Include" />
+          <e p="Extensions.cs" t="Include" />
+        </e>
         <e p="MemoTime.Api.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Startup.cs" t="Include" />
@@ -24,7 +28,9 @@
       </e>
       <e p="MemoTime.Core" t="IncludeRecursive">
         <e p="Domain" t="Include">
+          <e p="DomainException.cs" t="Include" />
           <e p="Entity.cs" t="Include" />
+          <e p="ErrorCodes.cs" t="Include" />
           <e p="MemoTimeException.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
@@ -46,6 +52,10 @@
           <e p="Users" t="Include">
             <e p="Register.cs" t="Include" />
           </e>
+        </e>
+        <e p="Exceptions" t="Include">
+          <e p="ErrorCodes.cs" t="Include" />
+          <e p="ServiceException.cs" t="Include" />
         </e>
         <e p="MemoTime.Infrastructure.csproj" t="IncludeRecursive" />
         <e p="Repositories" t="Include">

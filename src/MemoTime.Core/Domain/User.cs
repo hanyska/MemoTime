@@ -14,11 +14,16 @@ namespace MemoTime.Core.Domain
             string password, string salt)
         {
             Id = id;
-            Username = username;
+            SetUsername(username);
             Email = email;
             Password = password;
             Salt = salt;
             CreatedAt = DateTime.UtcNow;
+        }
+
+        public void SetUsername(string username)
+        {
+            throw new DomainException(ErrorCodes.InvalidUsername, "Name too short");
         }
     }
 }
