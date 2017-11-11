@@ -104,7 +104,7 @@ Jako u¿ytkownik chcê mieæ mo¿liwoœæ drukowania zadañ/projektów, aby np. powiesiæ
 Jako u¿ytkownik chcê mieæ mo¿liwoœæ widoku kalendarza i dodatkowej funkcji dodawania specjalnych dat(np. urodziny) ze specjaln¹ ikonk¹ , aby wzrokowo widzieæ wa¿ne dla mnie daty jak i rozk³ad swoich zadañ.
 
 
-
+\newpage
 \section{Harmonogram}
 \label{sec:Harmonogram}
 
@@ -209,148 +209,207 @@ Jako u¿ytkownik chcê mieæ mo¿liwoœæ widoku kalendarza i dodatkowej funkcji dodaw
 \item Development Team: Kamil Oleksy
 \end{itemize}
 
-
+\newpage
 \section{Product Backlog}
 
-\subsection{Backlog Item 1}
-\paragraph{Tytu³ zadania.} Implementacja rejestracji oraz logowania u¿ytkownika 
-\paragraph{Opis zadania.} Wygl¹d strony demo. Stworzenie pocz¹tkowego szablonu strony. Stworzenie repozytorium u¿ytkowników, kontrolerów oraz serwisów s³u¿¹cych do rejestracji oraz logowania u¿ytkownika.
-\paragraph{Priorytet.} Wysoki
-\paragraph{Definition of Done.} U¿ytkownik poprzez stronê WWW ma mo¿liwoœæ uzupe³nienia formularza rejestracyjnego a nastêpnie mo¿e zalogowaæ siê do swojego nowo utworzonego konta. 
+\subsection{Backlog Item 1} 
+\paragraph{Tytu³ zadania.} Instalacja frameworka Angular.
+\paragraph{Opis zadania.} Pobranie œrodowiska node.js, nastêpnie w oparciu o oficjaln¹ dokumentacjê, za pomoc¹ menad¿era pakietów npm pobranie frameworka Angular, a nastêpnie uruchomienie aplikacji testowej. 
+\paragraph{Definition of Done.} Wchodz¹c na stronê na której uruchomiona jest aplikacja, po procesie instalacji frameworka Angular widoczna bêdzie strona powitalna potwierdzaj¹ca pomyœlny proces instalacji.
 
 \subsection{Backlog Item 2}
-\paragraph{Tytu³ zadania.} Nowa funkcjonalnoœæ - dodawanie projektów i zadañ oraz ich modyfikacja.
-\paragraph{Opis zadania.}  Stworzenie repozytoriów, kontrolerów oraz serwisów do obs³ugi zadañ oraz projektów.  Dodanie nowych komponentów graficznych w wygl¹dzie strony.
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} U¿ytkownik bêdzie mia³ mo¿liwoœæ dodania projektu i zadañ w tym projekcie. 
+\paragraph{Tytu³ zadania.} Stworzenie strony startowej aplikacji WWW.
+\paragraph{Opis zadania.} Stworzenie szablonu HTML strony startowej wraz z odpowiadaj¹cymi jej stylami CSS, oraz komponentu menu g³ównego.
+\paragraph{Definition of Done.} Po wejœciu na stronê g³ówn¹ aplikacji w centralnej czêœci strony wyœwietli siê blok zawieraj¹cy
+informacje o aplikacji. W górnej czêœci strony dostêpne bêdzie menu wraz z przyciskami prowadz¹cymi do podstron logowania oraz rejestracji.
 
-\subsection{Backlog Item 3}
-\paragraph{Tytu³ zadania.} Zaznaczanie zrobionych zadañ.
-\paragraph{Opis zadania.} Stworzenie funkcji obs³ugi wykonanych zadañ.
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} Zrobione zadania, zaznaczone przez u¿ytkownika, bêd¹ zaznaczone jako wykonane i bêd¹ automatycznie przenoszone do archiwum.
+\subsection{Backlog Item 3} 
+\paragraph{Tytu³ zadania.} Stworzenie interfejsu do rejestracji u¿ytkownika.
+\paragraph{Opis zadania.} Stworzenie szablonu HTML zawieraj¹cego formularz rejestracyjny zawieraj¹cy pola: 
+- email, nazwa u¿ytkownika, has³o, data urodzenia, akceptacja regulaminu korzystania z aplikacji.
+\paragraph{Definition of Done.} Po wejœciu na podstronê pojawia siê formularz do rejestracji u¿ytkownika
 
+ 
 \subsection{Backlog Item 4} 
-\paragraph{Tytu³ zadania.}  Instalacja ¶rodowiska Docker wraz z silnikiem bazodanowym MSSQl
-\paragraph{Opis zadania.} Instalcja ¶rodowiska Docker, a nastêpnie pobranie oraz konfiguracja kontenera Docker zawieraj±cego silnik bazodanowy MSSQl.
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} Pobrane oraz skonfigurowane ¶rodowisko Docker wraz z kontenerem zawieraj±cym silnik bazodanowy MSSQL pozwala na utworzenie 
-bazy danych, s³u¿ej jako magazyn na dane aplikacji, pod³±czenie siê do niej oraz korzystanie z niej z poziomu aplikacji.
+\paragraph{Tytu³ zadania.} Stworzenie interfejsu do logowania u¿ytkownika.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 5} 
-\paragraph{Tytu³ zadania.} Stworzenie repozytorium u¿ytkowników 
-\paragraph{Opis zadania.} Zaprogramowanie klasy repozytorium u¿ytkowników.
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W repozytorium zaimplementowane s± metody do dodawania, usuwania, pobierania u¿ytkownika oraz akutalizacji jego danych. Repozytorium komunikuje siê z silnikiem bazodanowym w celu trwa³ego zapisu danych na dysku. Repozytorium mo¿e byæ wykorzystywane przez inne klasy np. serwisy s³u¿±ce do tworzenia nowego u¿ytkownika.
+\paragraph{Tytu³ zadania.} Stworzenie widoku pokazuj¹cego dane zalogowanego u¿ytkownika.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 6} 
-\paragraph{Tytu³ zadania.} Stworzenie repozytorium projektów.
-\paragraph{Opis zadania.} Zaprogramowanie klasy repozytorium projektów.
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W aplikacji stworzona zosta³a klasa s³u¿±ca jako repozytorium projektów. W klasie tej znajduj± siê metody do zapisywania nowo utworzonego projektu, pobierania go, modyfikowania oraz usuwania. Klasa repozytorium projektów komunikuje siê z baz± danych w celu trwa³ego zapisu danych na dysku. Klasa ta mo¿e byæ wykorzystywana w innnych klasach np. serwisów projektów. Klasa repozytorium projektów posiada swój w³asny interfejs, dziêki czemu inne klasy wykorzystuj±ce klasê repozytorium, wiedz± jakie metody zaimplementowane s± w klasie.
+\paragraph{Tytu³ zadania.} Stworzenie widoku pokazuj¹cego projekty oraz zadania stworzone przez u¿ytkownika.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 7} 
-\paragraph{Tytu³ zadania.} Stworzenie funkcjonalno¶ci rejestracji u¿ytkowników. 
-\paragraph{Opis zadania.} Zaprogramowanie klasy - serwisu s³u¿±cej do rejestracji nowych u¿ytkowników. 
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W aplikacji ustworzona jest klasa UserService, wraz z metod± do rejestracji nowego u¿ytkownika. Stworzona jest równie¿ klasa User odwzorowujaca u¿ytkownika aplikacji. Klasa ta posiada nastêpuj±ce pola: 
-- Identyfikator u¿ytkownika, 
-- Nazwa u¿ytkownika,
-- Email u¿ytkownika, 
-- Has³o u¿ytkownika, 
-- Data rejestracji, 
-- Sól u¿yta do procesu hashowania has³a
-W metodzie s³u¿acej do rejestracji, znajduje siê walidacja adresu email oraz nazwy u¿ytkownika, która polega na sprawdzeniu czy przes³any przez u¿ytkownika email oraz nazwa, nie s± ju¿ przypisane do istniej±cego u¿ytkownika. Je¿eli tak, serwis wstrzymuje proces rejestracji, zwracaj±c odpowiedni kod b³êdu, który informuje, ¿e proces rejestracji nie mo¿e zostaæ zakoñczony pomy¶lnie. Klasa posiada w sobie referencjê do repozytorium u¿ytkoników, dziêki czemu po walidacji danych wymaganych do utworzenia nowego u¿ytkonika, serwis wywo³uje metodê z repozytorium u¿ytkowników, która zapisuje nowo utworzonego u¿ytkownika. 
+\paragraph{Tytu³ zadania.} Zaprojektowanie szablonu e--maila zawieraj¹cego zadania u¿ytkownika na bie¿¹cy dzieñ.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 8} 
-\paragraph{Tytu³ zadania.} Stworzenie funkcjonalno¶ci logowania u¿ytkownika.
-\paragraph{Opis zadania.} Zaprogramowanie klasy do generowania tokenów uwierzytelniaj±cych, oraz dodanie do klasy UserService metody s³¿±cej do logowania
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W aplikacji stworzona jest klasa JwtHandler, wraz z metod± do generowania tokenów uwierzytelniaj±cych. Metoda do generowania tokenów przyjumuje jako parametry nazwê u¿ytkownika oraz jego rolê. Metoda ta po zakoczeniu swojego dzia³ania zwraca odpowiedni token, dziêki któremu u¿ytkownik uwierzytelnia siê do aplikacji. W klasie UserService stworzona zostaje metoda do logowania, która jako swoje parametry przyjmuje nazwê u¿ytkownika oraz jego has³o. Metoda ta wykorzystuje repozytorium u¿ytkowników do sprawdzenia czy dane podane przez u¿ytkownika w procesie logowania s± prawid³owe. Je¿eli dane s± prawid³owe metoda wywo³uje metodê generowania tokenów z klasy JwtHandler, dziêki czemu wygenerowany zostaje token uwierzytelniaj±cy. W przypadku niepowodzenia procesu logowania, tj. w przypadku podania b³êdnego has³a lub loginu, wygenerowania zostaje komunikat b³êdu informuj±cy o podaniu b³êdnych danych do logowania.
+\paragraph{Tytu³ zadania.} Zaprojektowanie interfejsu s³u¿¹cego do dodawania projektu przez u¿ytkownika.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 9} 
-\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalno¶ci dodawania projektów.
-\paragraph{Opis zadania.} Stworzenie klasy Project, oraz ProjectService oraz dodawnie w niej metody s³u¿±cej do dodawania nowych projektów. 
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W aplikacji stworzona jest klasa Project, która posiada nastêpuj±ce w³a¶ciwo¶ci:
-- Identyfikator projektu, 
-- Nazwa projektu, 
-- Data utworzenia projektu,
-- Kontener z list± zadañ projektu
-Stworzona jest równie¿ klasa ProjectService, oraz metody która tworzy nowy obiekt Project na podstawie danych przes³±nych prze¿ u¿ytkownika, a nastêpnie korzystaj±c z repozytorium projektów, wywo³uje metodê dodaj±c± projekt, która zapisuje nowo utworzony projekt w bazie danych. 
+\paragraph{Tytu³ zadania.} Zaprojektowanie interfejsu s³u¿acego do tworzenia nowego zadania.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 10} 
-\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalno¶ci usuwania projektów.
-\paragraph{Opis zadania.} Stworzenie w klasie ProjectService metody s³u¿±cej do usuwania projektu. 
-\paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W klasie ProjectService dodana jest metoda, która usuwa podany projekt, na podstawie identyfikatora projektu przes³anego 
-przez u¿ytkownika. Metoda ta najpierw pobiera z repozytorium projektów obiekt projeku, wraz z zadaniami przypisanymi do tego projektu, a nastêpnnie przesy³a ten projekt, do metody usuwaj±cej projekt znajduj±cej siê w klasie ProjectRepository. Metoda ta znajduj±ca siê w ProjectRepository komunikuje siê z baz± danych wywo³uj±c zapytanie usuwaj±ce projekt z bazy. 
+\paragraph{Tytu³ zadania.} Zaprojektowanie interfejsu kalendarza.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 11} 
-\paragraph{Tytu³ zadania.} Stworzenie funkcjonalno¶ci modyfikowania projetu.
-\paragraph{Opis zadania.} Dodadanie do klasy ProjectService metody do modyfkacji projektu.
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} W klasie ProjectService dodana jest metoda s³u¿±ca do modyfkowania istniej±cego wcze¶niej projektu. Metoda ta przyjuje jako swoje argumenty identyfikator projektu, oraz now± nazwê projektu. Metoda za pomoc± repozytorium projektów na podstawie przes³anego identyfikatora, pobiera projekt, zmienia, jego nazwê, a nastepnie wywo³uje metod± zapisuj±ca zmiany. W przypadku je¿eli do przes³anego przez u¿ytkownika identyfikatora nie jest przypisany ¿aden projekt, metoda zwraca odpowiedni kod b³êdu informuj±cy o niepowodzeniu akutalizacji projektu.
+\paragraph{Tytu³ zadania.} Stworzenie widoku pokazuj¹cego zakoñczone projekty oraz zakoñczone zadania z u¿ytkownika.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
 
 \subsection{Backlog Item 12} 
-\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalno¶ci dodawnaia nowych zadañ.
-\paragraph{Opis zadania.} Stworzenie klasy Task bêd±cej odwzorowaniem zadania, które mo¿e stworzyæ u¿tywkonik, oraz zapogrowamianie klasy TaskService i metody 				  dodaj±cej nowe zadanie.
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} W aplikacji stworzona jest klasa Task, która posiada nastêpuj±ce pola:
-- Identyfkator zadania,
-- Identyfikator projektu,
-- Identyfikator u¿ytkownika, 
-- Nazwa,
-- Opis,
-- Data dodawnia, 
-- Termin realizacji, 
-- Priorytet,
-- Etykieta,  
-Zaprogramowana jest równie¿ klasa TaskService oraz metoda AddTask, która s³u¿yd do tworzenia nowego zadania, na podstawie danych przes³anych przez u¿ytkownika. 
-Metoda ta przyjmuje jako parametry: - identyfikator projektu, identyfikator u¿ytkownika, nazwê zadania, termin realizacji, opis, priorytet oraz etykietê.
-Metoda ta tworzy nowy obiekt klasy Task, a nastêpnie u¿ywaj±c Repozytorum Zadañ, wywo³uje metodê dodaj±c± zadanie do bazy danych.
-Do odpowiedninego projektu(maj±ceg identyfikator przes³any przez u¿ytkownika) zostaje przypisane nowo utworzone zadanie.
+\paragraph{Tytu³ zadania.} Zaprojektowanie funkcjonalnoœci etykietowania zadañ.
+\paragraph{Opis zadania.} 
+\paragraph{Definition of Done.}
+
+
+
+
 
 
 \subsection{Backlog Item 13} 
-\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalno¶ci usuwania zadañ.
-\paragraph{Opis zadania.} Stworzenie w klasie TaskService metody s³u¿±cej do usuwania zadania. 
+\paragraph{Tytu³ zadania.}  Instalacja œrodowiska Docker wraz z silnikiem bazodanowym MSSQL.
+\paragraph{Opis zadania.} Instalacja œrodowiska Docker, a nastêpnie pobranie oraz konfiguracja kontenera Docker zawieraj¹cego silnik bazodanowy MSSQL.
 \paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} W klasie TaskService dodana jest metoda, która usuwa podane zadanie, na podstawie identyfikatora zadania przes³anego 
-przez u¿ytkownika. Metoda ta najpierw pobiera z repozytorium zadañ obiekt zadania, a nastêpnnie przesy³a to zadanie, do metody usuwaj±cej zadania znajduj±cej siê w klasie TaskRepository. Metoda ta znajduj±ca siê w TaskRepository komunikuje siê z baz± danych wywo³uj±c zapytanie usuwaj±ce zadamie z bazy. 
-Z projektu, do którego przypisane zostaje zadanie, zostaje ono usniête.
+\paragraph{Definition of Done.} Pobrane oraz skonfigurowane œrodowisko Docker wraz z kontenerem zawieraj¹cym silnik bazodanowy MSSQL pozwala na utworzenie bazy danych, s³u¿¹cej jako magazyn na dane aplikacji, pod³¹czenie siê do niej oraz korzystanie z niej z poziomu aplikacji.
 
 \subsection{Backlog Item 14} 
-\paragraph{Tytu³ zadania.} Stworzenie funkcjonalno¶ci modyfikowania zadañ.
-\paragraph{Opis zadania.} Dodadanie do klasy TaskService metody do modyfkacji zadania.
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} W klasie TaskService dodana jest metoda s³u¿±ca do modyfkowania istniej±cego wcze¶niej zadania. Metoda za pomoc± repozytorium zadañ na podstawie przes³anego identyfikatora, pobiera zadanie, a nastepnie wywo³uje metod± zapisuj±ca zmiany. W przypadku je¿eli do przes³anego przez u¿ytkownika identyfikatora nie jest przypisany ¿adne zadanie, metoda zwraca odpowiedni kod b³êdu informuj±cy o niepowodzeniu akutalizacji zadania. Zadanie, które u¿ytkownik aktualizuje posiada przypisane nowe parametry.
-
+\paragraph{Tytu³ zadania.} Stworzenie repozytorium u¿ytkowników.
+\paragraph{Opis zadania.} Zaprogramowanie klasy repozytorium u¿ytkowników.
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W repozytorium zaimplementowane s¹ metody do dodawania, usuwania, pobierania u¿ytkownika oraz aktualizacji jego danych. Repozytorium komunikuje siê z silnikiem bazodanowym w celu trwa³ego zapisu danych na dysku. Repozytorium mo¿e byæ wykorzystywane przez inne klasy np. serwisy s³u¿¹ce do tworzenia nowego u¿ytkownika.
 
 \subsection{Backlog Item 15} 
-\paragraph{Tytu³ zadania.} Stworzenie funkcjonalno¶ci wysy³aj±cej email z zadaniami do wykonania bie¿±cego dnia.
-\paragraph{Opis zadania.} Zaprogrmowanie w aplikacji klasy EmailNotifyService, która pobiera z repozytorium zadania do wykoannia ka¿dego dnia, a nastêpnie wysy³a je do u¿ytkownika.
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} Do u¿ytkownika wysy³ana jest codzinnie na email lista zadañ do wykonania bie¿±cego dnia.
-
+\paragraph{Tytu³ zadania.} Stworzenie repozytorium projektów.
+\paragraph{Opis zadania.} Zaprogramowanie klasy repozytorium projektów.
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W aplikacji stworzona zosta³a klasa s³u¿¹ca jako repozytorium projektów. W klasie tej znajduj¹ siê metody do zapisywania nowo utworzonego projektu, pobierania go, modyfikowania oraz usuwania. Klasa repozytorium projektów komunikuje siê z baz¹ danych w celu trwa³ego zapisu danych na dysku. Klasa ta mo¿e byæ wykorzystywana w innych klasach np. serwisów projektów. Klasa repozytorium projektów posiada swój w³asny interfejs, dziêki czemu inne klasy wykorzystuj¹ce klasê repozytorium, wiedz¹ jakie metody zaimplementowane s¹ w klasie.
 
 \subsection{Backlog Item 16} 
-\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalno¶ci pobierania listy zadañ, do widoku kalendarza.
-\paragraph{Opis zadania.} Zaprogramowanie w klasach TaskService, oraz Repozytorim Zadañ, metod które bêd± pobiera³y listê zadañ od bie¿±cego dnia do konca miesi±ca. Lista tych zadañ wykorzystywana bêdzie w widoku kalendarza.
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} Do interfejsu u¿ytkownika zwracana jest lista zadañ, od dnia bie¿±cego do koñca miesi±ca. 
+\paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci rejestracji u¿ytkowników. 
+\paragraph{Opis zadania.} Zaprogramowanie klasy -- serwisu s³u¿¹cej do rejestracji nowych u¿ytkowników. 
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W aplikacji utworzona jest klasa UserService, wraz z metod¹ do rejestracji nowego u¿ytkownika. Stworzona jest równie¿ klasa User odwzorowuj¹ca u¿ytkownika aplikacji. Klasa ta posiada nastêpuj¹ce pola: 
+\begin{itemize}
+\item Identyfikator u¿ytkownika, 
+\item Nazwa u¿ytkownika,
+\item E--mail u¿ytkownika, 
+\item Has³o u¿ytkownika, 
+\item Data rejestracji, 
+\item Sól u¿yta do procesu haszowania has³a
+\end{itemize}
+W metodzie s³u¿¹cej do rejestracji, znajduje siê walidacja adresu e--mail oraz nazwy u¿ytkownika, która polega na sprawdzeniu czy przes³any przez u¿ytkownika e--mail oraz nazwa, nie s¹ ju¿ przypisane do istniej¹cego u¿ytkownika. Je¿eli tak, serwis wstrzymuje proces rejestracji, zwracaj¹c odpowiedni kod b³êdu, który informuje, ¿e proces rejestracji nie mo¿e zostaæ zakoñczony pomyœlnie. Klasa posiada w sobie referencjê do repozytorium u¿ytkowników, dziêki czemu po walidacji danych wymaganych do utworzenia nowego u¿ytkownika, serwis wywo³uje metodê z repozytorium u¿ytkowników, która zapisuje nowo utworzonego u¿ytkownika. 
 
 \subsection{Backlog Item 17} 
-\paragraph{Tytu³ zadania.} Stworzenie funkcjonalno¶ci etykietowania zadañ.
-\paragraph{Opis zadania.} Zaprogramowanie metody s³u±cej do dodawania etykiet do zadañ, dzieki czemu zadania bêd± mog³y byæ grupowane np. w zale¿no¶ci od kontekstu wykonania(w domu, w pracy, itp...)
-\paragraph{Priorytet.} Niski
-\paragraph{Definition of Done.} Ka¿de nowo utworzone zadanie mo¿e posiadaæ etykietê, okre¶laj±c± np. kontekst wykonania. W serwisie zadañ zostaje dodana metoda, która modyfikuje istniej±ce zadanie nadaj±c mu etykietê zadan± przez u¿ytkownika.
+\paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci logowania u¿ytkownika.
+\paragraph{Opis zadania.} Zaprogramowanie klasy do generowania tokenów uwierzytelniaj¹cych, oraz dodanie do klasy UserService metody s³u¿¹cej do logowania.
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W aplikacji stworzona jest klasa JwtHandler, wraz z metod¹ do generowania tokenów uwierzytelniaj¹cych. Metoda do generowania tokenów przyjmuje jako parametry nazwê u¿ytkownika oraz jego rolê. Metoda ta po zakoñczeniu swojego dzia³ania zwraca odpowiedni token, dziêki któremu u¿ytkownik uwierzytelnia siê do aplikacji. W klasie UserService stworzona zostaje metoda do logowania, która jako swoje parametry przyjmuje nazwê u¿ytkownika oraz jego has³o. Metoda ta wykorzystuje repozytorium u¿ytkowników do sprawdzenia czy dane podane przez u¿ytkownika w procesie logowania s¹ prawid³owe. Je¿eli dane s¹ prawid³owe metoda wywo³uje metodê generowania tokenów z klasy JwtHandler, dziêki czemu wygenerowany zostaje token uwierzytelniaj¹cy. W przypadku niepowodzenia procesu logowania, tj. w przypadku podania b³êdnego has³a lub loginu, wygenerowania zostaje komunikat b³êdu informuj¹cy o podaniu b³êdnych danych do logowania.
 
 \subsection{Backlog Item 18} 
+\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalnoœci dodawania projektów.
+\paragraph{Opis zadania.} Stworzenie klasy Project, oraz ProjectService oraz dodawanie w niej metody s³u¿¹cej do dodawania nowych projektów. 
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W aplikacji stworzona jest klasa Project, która posiada nastêpuj¹ce w³aœciwoœci:
+\begin{itemize}
+\item Identyfikator projektu, 
+\item Nazwa projektu, 
+\item Data utworzenia projektu,
+\item Kontener z list¹ zadañ projektu
+\end{itemize}
+Stworzona jest równie¿ klasa ProjectService, oraz metody która tworzy nowy obiekt Project na podstawie danych przes³anych przez u¿ytkownika, a nastêpnie korzystaj¹c z repozytorium projektów, wywo³uje metodê dodaj¹c¹ projekt, która zapisuje nowo utworzony projekt w bazie danych. 
+
+\subsection{Backlog Item 19} 
+\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalnoœci usuwania projektów.
+\paragraph{Opis zadania.} Stworzenie w klasie ProjectService metody s³u¿¹cej do usuwania projektu. 
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W klasie ProjectService dodana jest metoda, która usuwa podany projekt, na podstawie identyfikatora projektu przes³anego 
+przez u¿ytkownika. Metoda ta najpierw pobiera z repozytorium projektów obiekt projektu, wraz z zadaniami przypisanymi do tego projektu, a nastêpnie przesy³a ten projekt, do metody usuwaj¹cej projekt znajduj¹cej siê w klasie ProjectRepository. Metoda ta znajduj¹ca siê w ProjectRepository komunikuje siê z baz¹ danych wywo³uj¹c zapytanie usuwaj¹ce projekt z bazy. 
+
+\subsection{Backlog Item 20} 
+\paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci modyfikowania projektu
+\paragraph{Opis zadania.} Dodanie do klasy ProjectService metody do modyfikacji projektu.
+\paragraph{Priorytet.} Niski
+\paragraph{Definition of Done.} W klasie ProjectService dodana jest metoda s³u¿¹ca do modyfikowania istniej¹cego wczeœniej projektu. Metoda ta przyjmuje jako swoje argumenty identyfikator projektu, oraz now¹ nazwê projektu. Metoda za pomoc¹ repozytorium projektów na podstawie przes³anego identyfikatora, pobiera projekt, zmienia, jego nazwê, a nastêpnie wywo³uje metod¹ zapisuj¹ca zmiany. W przypadku je¿eli do przes³anego przez u¿ytkownika identyfikatora nie jest przypisany ¿aden projekt, metoda zwraca odpowiedni kod b³êdu informuj¹cy o niepowodzeniu aktualizacji projektu.
+
+\subsection{Backlog Item 21} 
+\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalnoœci dodawania nowych zadañ.
+\paragraph{Opis zadania.} Stworzenie klasy Task bêd¹cej odwzorowaniem zadania, które mo¿e stworzyæ u¿ytkownik, oraz zaprogramowanie klasy TaskService i metody dodaj¹cej nowe zadanie.
+\paragraph{Priorytet.} Niski
+\paragraph{Definition of Done.} W aplikacji stworzona jest klasa Task, która posiada nastêpuj¹ce pola:
+\begin{itemize}
+\item Identyfikator zadania
+\item Identyfikator projektu
+\item Identyfikator u¿ytkownika
+\item Nazwa
+\item Opis
+\item Data dodania
+\item Termin realizacji
+\item Priorytet
+\item Etykieta
+\end{itemize}
+Zaprogramowana jest równie¿ klasa TaskService oraz metoda AddTask, która s³u¿yd do tworzenia nowego zadania, na podstawie danych przes³anych przez u¿ytkownika. Metoda ta przyjmuje jako parametry:
+\begin{itemize}
+\item identyfikator projektu
+\item identyfikator u¿ytkownika
+\item nazwê zadania
+\item termin realizacji
+\item opis, 
+\item priorytet
+\item etykietê
+\end{itemize}
+Metoda ta tworzy nowy obiekt klasy Task, a nastêpnie u¿ywaj¹c Repozytorium Zadañ, wywo³uje metodê dodaj¹c¹ zadanie do bazy danych. Do odpowiedniego projektu(maj¹cego identyfikator przes³any przez u¿ytkownika) zostaje przypisane nowo utworzone zadanie.
+
+\subsection{Backlog Item 22} 
+\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalnoœci usuwania zadañ.
+\paragraph{Opis zadania.} Stworzenie w klasie TaskService metody s³u¿¹cej do usuwania zadania. 
+\paragraph{Priorytet.} Normalny
+\paragraph{Definition of Done.} W klasie TaskService dodana jest metoda, która usuwa podane zadanie, na podstawie identyfikatora zadania przes³anego przez u¿ytkownika. Metoda ta najpierw pobiera z repozytorium zadañ obiekt zadania, a nastêpnie przesy³a to zadanie, do metody usuwaj¹cej zadania znajduj¹cej siê w klasie TaskRepository. Metoda ta znajduj¹ca siê w TaskRepository komunikuje siê z baz¹ danych wywo³uj¹c zapytanie usuwaj¹ce zadanie z bazy. Z projektu, do którego przypisane zostaje zadanie, zostaje ono usuniête.
+
+\subsection{Backlog Item 23} 
+\paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci modyfikowania zadañ.
+\paragraph{Opis zadania.} Dodanie do klasy TaskService metody do modyfikacji zadania.
+\paragraph{Priorytet.} Niski
+\paragraph{Definition of Done.} W klasie TaskService dodana jest metoda s³u¿¹ca do modyfikowania istniej¹cego wczeœniej zadania. Metoda za pomoc¹ repozytorium zadañ na podstawie przes³anego identyfikatora, pobiera zadanie, a nastêpnie wywo³uje metod¹ zapisuj¹ca zmiany. W przypadku je¿eli do przes³anego przez u¿ytkownika identyfikatora nie jest przypisany ¿adne zadanie, metoda zwraca odpowiedni kod b³êdu informuj¹cy o niepowodzeniu aktualizacji zadania. Zadanie, które u¿ytkownik aktualizuje posiada przypisane nowe parametry.
+
+
+\subsection{Backlog Item 24} 
+\paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci wysy³aj¹cej e--mail z zadaniami do wykonania bie¿¹cego dnia.
+\paragraph{Opis zadania.} Zaprogramowanie w aplikacji klasy EmailNotifyService, która pobiera z repozytorium zadania do wykonania ka¿dego dnia, a nastêpnie wysy³a je do u¿ytkownika.
+\paragraph{Priorytet.} Niski
+\paragraph{Definition of Done.} Do u¿ytkownika wysy³ana jest codziennie na e--mail lista zadañ do wykonania bie¿¹cego dnia.
+
+
+\subsection{Backlog Item 25} 
+\paragraph{Tytu³ zadania.}  Stworzenie funkcjonalnoœci pobierania listy zadañ, do widoku kalendarza.
+\paragraph{Opis zadania.} Zaprogramowanie w klasach TaskService, oraz Repozytoriom Zadañ, metod które bêd¹ pobiera³y listê zadañ od bie¿¹cego dnia do koñca miesi¹ca. Lista tych zadañ wykorzystywana bêdzie w widoku kalendarza.
+\paragraph{Priorytet.} Niski
+\paragraph{Definition of Done.} Do interfejsu u¿ytkownika zwracana jest lista zadañ, od dnia bie¿¹cego do koñca miesi¹ca. 
+
+\subsection{Backlog Item 26} 
+\paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci etykietowania zadañ.
+\paragraph{Opis zadania.} Zaprogramowanie metody s³u¿¹cej do dodawania etykiet do zadañ, dziêki czemu zadania bêd¹ mog³y byæ grupowane np. w zale¿noœci od kontekstu wykonania(w domu, w pracy, itp.)
+\paragraph{Priorytet.} Niski
+\paragraph{Definition of Done.} Ka¿de nowo utworzone zadanie mo¿e posiadaæ etykietê, okreœlaj¹c¹ np. kontekst wykonania. W serwisie zadañ zostaje dodana metoda, która modyfikuje istniej¹ce zadanie nadaj¹c mu etykietê zadan¹ przez u¿ytkownika.
+
+\subsection{Backlog Item 27} 
 \paragraph{Tytu³ zadania.} Stworzenie repozytorium zadañ 
 \paragraph{Opis zadania.} Zaprogramowanie klasy repozytorium zadañ.
 \paragraph{Priorytet.} Normalny
-\paragraph{Definition of Done.} Stworzona jest klasa Repozytorium Zadañ. W repozytorium zaimplementowane s± metody do dodawania, usuwania, pobierania zadania  oraz akutalizacji jego danych. Repozytorium komunikuje siê z silnikiem bazodanowym w celu trwa³ego zapisu danych na dysku.
+\paragraph{Definition of Done.} Stworzona jest klasa Repozytorium Zadañ. W repozytorium zaimplementowane s¹ metody do dodawania, usuwania, pobierania zadania  oraz aktualizacji jego danych. Repozytorium komunikuje siê z silnikiem bazodanowym w celu trwa³ego zapisu danych na dysku.
 
 
 \section{Sprint 1}
