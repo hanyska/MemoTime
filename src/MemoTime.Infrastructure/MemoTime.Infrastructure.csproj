@@ -5,4 +5,8 @@
   <ItemGroup>
     <ProjectReference Include="..\MemoTime.Core\MemoTime.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
+  </ItemGroup>
 </Project>

@@ -23,7 +23,7 @@ namespace MemoTime.Core.Domain
 
         public void SetUsername(string username)
         {
-            throw new DomainException(ErrorCodes.InvalidUsername, "Name too short");
+            Username = username;
         }
     }
 }

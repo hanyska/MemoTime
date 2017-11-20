@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Threading.Tasks;
 using MemoTime.Core.Domain;
 
@@ -13,4 +14,4 @@ namespace MemoTime.Core.Repositories
         Task UpdateAsync(User user);
         Task RemoveAsync(User user);
     }
-}
+} 

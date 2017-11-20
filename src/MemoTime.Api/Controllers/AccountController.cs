@@ -2,10 +2,12 @@
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Users;
 using MemoTime.Infrastructure.Services.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MemoTime.Api.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("[controller]")]
     public class AccountController : Controller
     {
@@ -19,11 +21,12 @@ namespace MemoTime.Api.Controllers
         public async Task<IActionResult> Post([FromBody] Register command)
         {
             command.Id = Guid.NewGuid();
+            Console.WriteLine("asdasdad");
 
             await _userService.RegisterAsync(command.Id, command.Username, 
                 command.Email, command.Password);
 
-            return Created($"/account/{command.Id}", null);
+            return Created($"/account/{command.Id}", new {});
         }
     }
 }

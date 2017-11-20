@@ -49,7 +49,7 @@ namespace MemoTime.Api.Framework
                     break;
             }
 
-            var response = new { code = errorCode, message = exception.Message };
+            var response = new { code = errorCode, message = exception.Message, stack = exception.StackTrace};
             var payload = JsonConvert.SerializeObject(response);
             
             context.Response.ContentType = "application/json";
