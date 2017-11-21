@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/MemoTime.Infrastructure.csproj",
+    "projectUniqueName": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/MemoTime.Infrastructure.csproj",
     "projectName": "MemoTime.Infrastructure",
-    "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/MemoTime.Infrastructure.csproj",
-    "outputPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/obj/",
+    "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/MemoTime.Infrastructure.csproj",
+    "outputPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/obj/",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netstandard2.0"
@@ -12,8 +12,8 @@
     "frameworks": {
       "netstandard2.0": {
         "projectReferences": {
-          "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/MemoTime.Core.csproj": {
-            "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/MemoTime.Core.csproj"
+          "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/MemoTime.Core.csproj": {
+            "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/MemoTime.Core.csproj"
           }
         }
       }

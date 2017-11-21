@@ -30,7 +30,7 @@
   },
   "libraries": {
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "VvImvTVgUCAS4mVXPuukIF5qIzYUWmM875NfXqzAhcsO2z8LHtNUJyQz7CwaUtraOBlnPwfJ3yYeCOybu4xWdg==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -177,23 +177,19 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {},
-    "/home/patryk/dotnet/sdk/NuGetFallbackFolder": {}
+    "/home/patryk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/MemoTime.Core.csproj",
+      "projectUniqueName": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/MemoTime.Core.csproj",
       "projectName": "MemoTime.Core",
-      "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/MemoTime.Core.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/obj/",
+      "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/MemoTime.Core.csproj",
+      "packagesPath": "/home/patryk/.nuget/packages/",
+      "outputPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/home/patryk/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/home/patryk/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -205,11 +201,6 @@
         "netstandard2.0": {
           "projectReferences": {}
         }
-      },
-      "warningProperties": {
-        "warnAsError": [
-          "NU1605"
-        ]
       }
     },
     "frameworks": {
@@ -218,8 +209,7 @@
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
+            "version": "2.0.0"
           }
         },
         "imports": [
