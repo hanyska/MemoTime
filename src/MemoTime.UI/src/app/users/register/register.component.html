@@ -5,10 +5,12 @@
     <h2>Stwórz konto <font color="#db4c3f">MemoTime</font>!</h2>
 
     <form (ngSubmit)="onSubmit()" ngNativeValidate #registerForm="ngForm" class="form">
-
+    <div>
+      {{message}}
+    </div>
       <ul class="tab-group">
-        <li class="active"><a href="#signup">Zarejestruj się</a></li>
-        <li class="active2"><a href="#login">Zaloguj się</a></li>
+          <li class="active"><a [routerLink]="['/register']">Zarejestruj się</a></li>
+          <li class="active2"><a [routerLink]="['/login']">Zaloguj się</a></li>
       </ul>
 
       <div class="form-group">

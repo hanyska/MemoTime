@@ -4,6 +4,7 @@ import {RegisterComponent} from "./register/register.component";
 import {UsersService} from "./services/users.service";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import {HttpClientModule} from "@angular/common/http";
     RegisterComponent
   ],
   providers: [  ],
-  declarations: [ RegisterComponent ]
+  declarations: [ RegisterComponent, LoginComponent ]
 })
 export class UsersModule { }

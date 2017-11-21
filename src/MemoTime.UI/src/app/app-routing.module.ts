@@ -5,9 +5,11 @@ import { RouterModule, Routes }  from '@angular/router';
 import { PUBLIC_ROUTES } from './public.rotues'
 
 import { RegisterComponent } from './users/register/register.component'
+import { LoginComponent } from './users/login/login.component';
 
 const APP_ROUTES: Routes = [
-  { path: '', component: RegisterComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
+  { path: 'register', component: RegisterComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
+  { path: 'login', component: LoginComponent, data: { title: 'Public Views' }, children: PUBLIC_ROUTES },
 
 ];
 
