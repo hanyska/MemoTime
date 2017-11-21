@@ -1,0 +1,46 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/MemoTime.Infrastructure.csproj",
+    "projectName": "MemoTime.Infrastructure",
+    "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/MemoTime.Infrastructure.csproj",
+    "outputPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/obj/",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "netstandard2.0"
+    ],
+    "frameworks": {
+      "netstandard2.0": {
+        "projectReferences": {
+          "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/MemoTime.Core.csproj": {
+            "projectPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.Core/MemoTime.Core.csproj"
+          }
+        }
+      }
+    }
+  },
+  "frameworks": {
+    "netstandard2.0": {
+      "dependencies": {
+        "NETStandard.Library": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "2.0.0"
+        },
+        "AutoMapper": {
+          "target": "Package",
+          "version": "6.2.1"
+        },
+        "Microsoft.AspNetCore.Authentication.JwtBearer": {
+          "target": "Package",
+          "version": "2.0.1"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

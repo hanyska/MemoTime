@@ -33,7 +33,6 @@ namespace MemoTime.Infrastructure.Services
             };
 
             var expires = now.AddMinutes(_settings.ExpiryMinutes);
-            Console.WriteLine("Key" + _settings.ValidIssuer);
             var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.Key)),
                 SecurityAlgorithms.HmacSha256);
 
