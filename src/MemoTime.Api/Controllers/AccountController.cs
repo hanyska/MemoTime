@@ -21,7 +21,6 @@ namespace MemoTime.Api.Controllers
         public async Task<IActionResult> Post([FromBody] Register command)
         {
             command.Id = Guid.NewGuid();
-            Console.WriteLine("asdasdad");
 
             await _userService.RegisterAsync(command.Id, command.Username, 
                 command.Email, command.Password);
