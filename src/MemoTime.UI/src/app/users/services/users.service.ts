@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import { catchError, map, tap } from 'rxjs/operators';
 import {of} from "rxjs/observable/of";
+import { retry } from 'rxjs/operators/retry';
+import { AuthToken } from '../models/AuthToken';
 
 const
   httpOptions = {
@@ -13,7 +15,8 @@ const
 @Injectable()
 export class UsersService {
 
-  private userUrl = 'http://localhost:5000/account'
+  private registerUrl = 'http://localhost:5000/account'
+  private loginUrl = 'http://localhost:5000/login'
 
   private user: User;
 
@@ -21,6 +24,10 @@ export class UsersService {
   }
 
   registerUser(user: User): Observable<User>{
-    return this.http.post(this.userUrl, user, httpOptions)
+    return this.http.post(this.registerUrl, user, httpOptions)
+  }
+
+  loginUser(user: User): Observable<AuthToken>{
+    return this.http.post(this.loginUrl, user, httpOptions)
   }
 }
