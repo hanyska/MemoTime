@@ -429,27 +429,32 @@ Metoda ta tworzy nowy obiekt klasy Task, a nastêpnie u¿ywaj¹c Repozytorium Zadañ
 
 \paragraph{Tytu³ zadania.} Stworzenie interfejsu do rejestracji u¿ytkownika.
 \subparagraph{Wykonawca.} Anna Janusz
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). 
+\subparagraph{Realizacja.} W frameworku Angular stworzone zosta³y modu³y oraz komponenty do obs³ugi rejestracji u¿ytkownika. Zosta³y podpiête pod g³ówny modu³. Estymata by³a wprost-proporcjonalna do za³o¿eñ.
 
 
 \paragraph{Tytu³ zadania.} Stworzenie interfejsu do logowania u¿ytkownika.
 \subparagraph{Wykonawca.} Anna Janusz
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). 
+\subparagraph{Realizacja.} W frameworku Angular stworzone zosta³y modu³y oraz komponenty do obs³ugi rejestracji u¿ytkownika. Zosta³y podpiête pod g³ówny modu³. Estymata by³a mniejsza ni¿ oczekiwana, gdy¿ komponent do logowania zosta³ opracowany na postawie modu³u rejestracji.
 
 
 \paragraph{Tytu³ zadania.} Stworzenie repozytorium u¿ytkowników.
 \subparagraph{Wykonawca.} Patryk Biel
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). 
+\subparagraph{Realizacja.}Stworzone zasta³a klasa repozytorium, która zapisuje dane w pamiêci. Implementacja repozytorium przebieg³a bez problemów, a estymata by³a mniejsza
+ni¿ oczekiwana
 
 
 \paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci rejestracji u¿ytkowników.
 \subparagraph{Wykonawca.} Patryk Biel
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). 
+\subparagraph{Realizacja.} W trakcie realizacji zosta³ stworzony endpoit do wysy³ania ¿¹dañ z warstwy frontowej. 
+Endpoit wykorzystuje serwis, który parsuje dane otrzymane w ¿¹daniu, a nastêpnie zapisuje dane w repozytorium. Estymata czasowa zgodna z zak³adan¹.
 
 
 \paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci logowania u¿ytkowników.
 \subparagraph{Wykonawca.} Patryk Biel
-\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). 
+\subparagraph{Realizacja.} << W aplikacji utworzony zosta³ endpoit do wysy³ania danych do logowania. Po prawid³owym uwierzytelnieniu, 
+do u¿ytkownika zwracany jest token, który s³u¿y do autoryzacji do zasobów. Token ten nale¿y umieszczaæ w nag³ówku, poprzedzaj¹c go s³owem kluczowym 
+Bearer. Przyk³ad -> Authorization: Bearer Token
+Mechanizm tworzenia tokenów oparty jest o Json Web Token, a algorytm s³u¿¹cy do generowania tokento HMAC 256.
 
 
 
