@@ -6,7 +6,7 @@ dotnet: 2.0.0
 branches:
   only:
     - master
-    - develop
+    - dev
 before_script:
   - chmod -R a+x scripts
 script:
