@@ -18,6 +18,7 @@ namespace MemoTime.Api.Controllers
             _userService = userService;
         }
         
+	[HttpPost]
         public async Task<IActionResult> Post([FromBody] Register command)
         {
             command.Id = Guid.NewGuid();
@@ -26,6 +27,12 @@ namespace MemoTime.Api.Controllers
                 command.Email, command.Password);
 
             return Created($"/account/{command.Id}", new {});
+        }
+
+	[HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            return Json("Dziala");
         }
     }
 }

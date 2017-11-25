@@ -17,6 +17,11 @@
           }
         }
       }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
     }
   },
   "frameworks": {
@@ -25,7 +30,8 @@
         "NETStandard.Library": {
           "suppressParent": "All",
           "target": "Package",
-          "version": "2.0.0"
+          "version": "2.0.0",
+          "autoReferenced": true
         },
         "AutoMapper": {
           "target": "Package",

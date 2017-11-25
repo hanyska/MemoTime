@@ -14,12 +14,16 @@ namespace MemoTime.Api
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            var config = new ConfigurationBuilder()
+                            .AddEnvironmentVariables()
+                            .AddCommandLine(args)
+                            .Build();
+            BuildWebHost(args, config).Run();
         }
-
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args, IConfigurationRoot config) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseConfiguration(config)
                 .Build();
     }
 }

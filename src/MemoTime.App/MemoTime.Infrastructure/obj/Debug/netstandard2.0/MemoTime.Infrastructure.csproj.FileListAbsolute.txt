@@ -8,3 +8,13 @@
 /home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.AssemblyInfo.cs
 /home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.dll
 /home/patryk/RiderProjects/MemoTime/src/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/bin/Debug/netstandard2.0/MemoTime.Infrastructure.deps.json
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/bin/Debug/netstandard2.0/MemoTime.Infrastructure.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/bin/Debug/netstandard2.0/MemoTime.Infrastructure.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/bin/Debug/netstandard2.0/MemoTime.Core.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/bin/Debug/netstandard2.0/MemoTime.Core.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.csproj.CoreCompileInputs.cache
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.AssemblyInfoInputs.cache
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.AssemblyInfo.cs
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Infrastructure/obj/Debug/netstandard2.0/MemoTime.Infrastructure.pdb

@@ -1,0 +1,8 @@
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/bin/Release/netstandard2.0/MemoTime.Core.deps.json
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/bin/Release/netstandard2.0/MemoTime.Core.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/bin/Release/netstandard2.0/MemoTime.Core.pdb
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/Release/netstandard2.0/MemoTime.Core.csproj.CoreCompileInputs.cache
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/Release/netstandard2.0/MemoTime.Core.AssemblyInfoInputs.cache
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/Release/netstandard2.0/MemoTime.Core.AssemblyInfo.cs
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/Release/netstandard2.0/MemoTime.Core.dll
+/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/Release/netstandard2.0/MemoTime.Core.pdb

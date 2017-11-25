@@ -15,8 +15,8 @@ const
 @Injectable()
 export class UsersService {
 
-  private registerUrl = 'http://localhost:5000/account'
-  private loginUrl = 'http://localhost:5000/login'
+  private registerUrl = 'http://*:5000/account'
+  private loginUrl = 'http://*:5000/login'
 
   private user: User;
 
