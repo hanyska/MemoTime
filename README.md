@@ -1,9 +1,6 @@
 # MemoTime
 
-[![Build Status](https://travis-ci.org/bielu000/MemoTime.svg?branch=dev)](https://travis-ci.org/bielu000/MemoTime)
-
-| First Header  | Second Header |
+| Branch master  | Branch dev     |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| [![Build Status](https://travis-ci.org/bielu000/MemoTime.svg?branch=dev)](https://travis-ci.org/bielu000/MemoTime) | [![Build Status](https://travis-ci.org/bielu000/MemoTime.svg?branch=dev)](https://travis-ci.org/bielu000/MemoTime)|
 
