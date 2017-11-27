@@ -1,4 +1,4 @@
-ï»¿\documentclass[a4paper]{article}
+\documentclass[a4paper]{article}
 \usepackage{polski}
 \usepackage[cp1250]{inputenc}
 \usepackage{url}
@@ -384,7 +384,7 @@ Metoda ta tworzy nowy obiekt klasy Task, a nastêpnie u¿ywaj¹c Repozytorium Zadañ
 
 
 \section{Sprint 1}
-\subsection{Cel} Stworzenie widoku i funkcjonalnoœci rejestracji oraz logowania 	u¿ytkownika.
+\subsection{Cel} Stworzenie widoku i funkcjonalnoœci rejestracji oraz logowania	u¿ytkownika.
 \subsection{Sprint Planning/Backlog}
 
 \paragraph{Tytu³ zadania.} Instalacja frameworka Angular.
@@ -418,7 +418,6 @@ Metoda ta tworzy nowy obiekt klasy Task, a nastêpnie u¿ywaj¹c Repozytorium Zadañ
 \end{itemize}
 
 
-
 \subsection{Realizacja}
 
 \paragraph{Tytu³ zadania.} Instalacja frameworka Angular.
@@ -438,8 +437,7 @@ Metoda ta tworzy nowy obiekt klasy Task, a nastêpnie u¿ywaj¹c Repozytorium Zadañ
 
 \paragraph{Tytu³ zadania.} Stworzenie repozytorium u¿ytkowników.
 \subparagraph{Wykonawca.} Patryk Biel
-\subparagraph{Realizacja.}Stworzone zasta³a klasa repozytorium, która zapisuje dane w pamiêci. Implementacja repozytorium przebieg³a bez problemów, a estymata by³a mniejsza
-ni¿ oczekiwana
+\subparagraph{Realizacja.} Stworzone zasta³a klasa repozytorium, która zapisuje dane w pamiêci. Implementacja repozytorium przebieg³a bez problemów, a estymata by³a mniejsza ni¿ oczekiwana.
 
 
 \paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci rejestracji u¿ytkowników.
@@ -450,8 +448,7 @@ Endpoit wykorzystuje serwis, który parsuje dane otrzymane w ¿¹daniu, a nastêpnie
 
 \paragraph{Tytu³ zadania.} Stworzenie funkcjonalnoœci logowania u¿ytkowników.
 \subparagraph{Wykonawca.} Patryk Biel
-\subparagraph{Realizacja.} W aplikacji utworzony zosta³ endpoit do wysy³ania danych do logowania. Po prawid³owym uwierzytelnieniu, 
-do u¿ytkownika zwracany jest token, który s³u¿y do autoryzacji do zasobów. Token ten nale¿y umieszczaæ w nag³ówku, poprzedzaj¹c go s³owem kluczowym Bearer. \\
+\subparagraph{Realizacja.} W aplikacji utworzony zosta³ endpoit do wysy³ania danych do logowania. Po prawid³owym uwierzytelnieniu, do u¿ytkownika zwracany jest token, który s³u¿y do autoryzacji do zasobów. Token ten nale¿y umieszczaæ w nag³ówku, poprzedzaj¹c go s³owem kluczowym Bearer. \\
 Przyk³ad -> Authorization: Bearer Token\\
 Mechanizm tworzenia tokenów oparty jest o Json Web Token, a algorytm s³u¿¹cy do generowania token to HMAC 256.
 
@@ -471,39 +468,49 @@ Wszystkie za³o¿enia sprintu 1 zosta³y zrealizowane. Logowanie jak i rejestracja 
 
 \section{Sprint 2}
 
-\subsection{Cel} <<Okreœliæ, w jakim celu tworzony jest przyrost produktu>>.
+\subsection{Cel} Pocz¹tkowa nawigacja dla u¿ytkownika, widok jego danych jak i jego projektów.
 
 \subsection{Sprint Planning/Backlog}
 
-\paragraph{Tytu³ zadania.} <<Tytu³>>.
+\paragraph{Tytu³ zadania.} Stworzenie strony startowej aplikacji WWW.
 \begin{itemize}
-\item Estymata: <<szacowana czasoch³onnoœæ (w ,,koszulkach'')>>.
+\item Estymata: L
 \end{itemize}
 
-\paragraph{Tytu³ zadania.} <<Tytu³>>.
+\paragraph{Tytu³ zadania.} Widok z danymi u¿ytkownika.
 \begin{itemize}
-\item Estymata: <<szacowana czasoch³onnoœæ (w ,,koszulkach'')>>.
+\item Estymata: XL
 \end{itemize}
 
-\paragraph{<<Tutaj dodawaæ kolejne zadania>>}
+\paragraph{Tytu³ zadania.} Widok projektów oraz zadañ.
+\begin{itemize}
+\item Estymata: XL
+\end{itemize}
+
 
 \subsection{Realizacja}
 
-\paragraph{Tytu³ zadania.} <<Tytu³>>.
-\subparagraph{Wykonawca.} <<Wykonawca>>.
+\paragraph{Tytu³ zadania.} Stworzenie strony startowej aplikacji WWW.
+\subparagraph{Wykonawca.} Anna Janusz
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). Kod programu (œrodowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{Tytu³ zadania.} <<Tytu³>>.
-\subparagraph{Wykonawca.} <<Wykonawca>>.
+\paragraph{Tytu³ zadania.} Widok z danymi u¿ytkownika.
+\subparagraph{Wykonawca.} Anna Janusz, Patryk Biel
 \subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). Kod programu (œrodowisko \texttt{verbatim}): \begin{verbatim}
 for (i=1; i<10; i++)
 ...
 \end{verbatim}>>.
 
-\paragraph{<<Tutaj dodawaæ kolejne zadania>>}
+
+\paragraph{Tytu³ zadania.} Widok projektów oraz zadañ.
+\subparagraph{Wykonawca.} Anna Janusz, Patryk Biel
+\subparagraph{Realizacja.} <<Sprawozdanie z realizacji zadania (w tym ocena zgodnoœci z estymat¹). Kod programu (œrodowisko \texttt{verbatim}): \begin{verbatim}
+for (i=1; i<10; i++)
+...
+\end{verbatim}>>.
 
 
 \subsection{Sprint Review/Demo}
