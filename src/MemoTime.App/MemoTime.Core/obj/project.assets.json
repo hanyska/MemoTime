@@ -177,8 +177,7 @@
     ]
   },
   "packageFolders": {
-    "/home/patryk/.nuget/packages/": {},
-    "/home/patryk/dotnet/sdk/NuGetFallbackFolder": {}
+    "/home/patryk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
@@ -189,11 +188,8 @@
       "packagesPath": "/home/patryk/.nuget/packages/",
       "outputPath": "/home/patryk/RiderProjects/MemoTime/src/MemoTime.App/MemoTime.Core/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/home/patryk/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/home/patryk/.nuget/NuGet/NuGet.Config"
+        "/home/patryk/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
