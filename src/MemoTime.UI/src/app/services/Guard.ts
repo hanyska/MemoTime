@@ -13,12 +13,12 @@ export class Guard implements CanActivate {
     //   return true;
     // }
 
-    if (2 > 1)
+    if (1 > 1)
     {
       return true
     }
     // not logged in so redirect to login page
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
     return false;
   }
 }
