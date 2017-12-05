@@ -6,14 +6,20 @@ body
   font-size: 17px;
 }
 
+.homepage-wrapper {
+  background-color: #2F3336
+}
 .categories
 {
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   width: 950px;
   text-align: center;
   padding: 0;
+  padding-top: 25px;
   padding-bottom: 10px;
+  color: white;
 }
 
 h1
@@ -39,6 +45,7 @@ h2
   text-align: center;
   padding-bottom: 70px;
   margin-bottom: 50px;
+  color: white;
 }
 
 .contact p

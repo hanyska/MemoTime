@@ -3,6 +3,7 @@ import {UsersService} from "../services/users.service";
 import {FormGroup} from "@angular/forms";
 import {User} from "../models/User";
 import {ERROR_CODES} from "../models/ErrorCodes"
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   message = ''
 
-  constructor(private usersService : UsersService) { }
+  constructor(private usersService : UsersService, private router: Router ) { }
 
   ngOnInit() {
     this.model = new User()
@@ -30,6 +31,9 @@ export class RegisterComponent implements OnInit {
     this.usersService.registerUser(this.model).subscribe(
       data => {
         this.message = "Zostałeś pomyślnie zarejstrowany"
+        setTimeout((router: Router) => {
+          this.router.navigate(['']);
+      }, 1000);  //5s
       },
       error => {
         let err_code = error.error.code

@@ -10,7 +10,7 @@ import { APP_ROUTES } from  './app.routes'
     CommonModule,
     RouterModule.forRoot(
       APP_ROUTES,
-      { enableTracing: false } // <-- debugging purposes only
+      { enableTracing: true } // <-- debugging purposes only
     )
   ],
   exports: [

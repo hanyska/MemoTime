@@ -20,6 +20,7 @@ import {ProjectsService} from "./tasks/services/projects.service";
 import {TodoManagerComponent} from "./tasks/todo-manager/task-dashboard.component";
 import {AccountComponent} from "./users/account/account.component";
 import {ProfileComponent} from "./users/profile/profile.component";
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import {ProfileComponent} from "./users/profile/profile.component";
     HomeModule,
     DragulaModule
   ],
-  providers: [ UsersService, Guard, ProjectsService],
+  providers: [ UsersService, Guard, ProjectsService, AuthService],
   bootstrap: [ AppComponent ],
 })
 export class AppModule { }

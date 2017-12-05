@@ -1,11 +1,12 @@
 import {CanActivate, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
+import { AuthService } from "./auth.service";
 
 
 @Injectable()
 export class Guard implements CanActivate {
 
-  constructor(protected router: Router) {}
+  constructor(protected router: Router, private auth: AuthService) {}
 
   canActivate() {
     // if (localStorage.getItem('access_token')) {
@@ -13,12 +14,14 @@ export class Guard implements CanActivate {
     //   return true;
     // }
 
-    if (1 > 1)
+    let token = this.auth.getToken();
+    if (token)
     {
+      
       return true
     }
     // not logged in so redirect to login page
-    this.router.navigate(['']);
+    this.router.navigate(['home']);
     return false;
   }
 }
