@@ -5,6 +5,8 @@ import {UsersService} from "./services/users.service";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
+import { AccountComponent } from './account/account.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -16,6 +18,6 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent
   ],
   providers: [  ],
-  declarations: [ RegisterComponent, LoginComponent ]
+  declarations: [ RegisterComponent, LoginComponent, AccountComponent, ProfileComponent ]
 })
 export class UsersModule { }
