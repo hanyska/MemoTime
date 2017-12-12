@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  memo-time-api:
+    image: memo.time.api
+    ports:
+      - '5000:5050'
+  
+  memo-time-ui:
+    image: memo.time.ui
+    links:
+      - memo-time-api
+    ports: 
+      - '8080:80'
+    mongo:
+    image: mongo
+    volumes:
+      - /data/db
+    ports:
+      - '27017:27017'
+
