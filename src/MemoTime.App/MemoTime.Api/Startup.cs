@@ -34,12 +34,11 @@ namespace MemoTime.Api
         public IContainer ApplicationContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var jwtSettings = Configuration.GetSection("jwt").Get<JwtSettings>();
             var mongoSettings = Configuration.GetSection("mongo").Get<MongoSettings>(); //it doesn't
-
-            services.AddScoped<IUserService, UserService>();
+            
             services.AddScoped<IJwtHandler, JwtHandler>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -64,6 +63,8 @@ namespace MemoTime.Api
             builder.Populate(services);
             builder.RegisterModule(new ContainerModule());
             ApplicationContainer = builder.Build();
+
+            return new AutofacServiceProvider(ApplicationContainer);
 
         }                                                                                                                
 

@@ -7,7 +7,7 @@ namespace MemoTime.Core.Domain
     {
         public Guid Id { get; protected set; }
         public string Name { get; protected set; }
-        public IList<Task> Tasks { get; protected set; }
+        public IList<TodoTask> Tasks { get; protected set; }
         public DateTime StartDate { get; protected set; }
         public DateTime DueDate { get; protected set; }
         public IList<Project> SubProjects { get; protected set; }

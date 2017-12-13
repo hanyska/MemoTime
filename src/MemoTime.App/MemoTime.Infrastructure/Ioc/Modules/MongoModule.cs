@@ -25,13 +25,13 @@ namespace MemoTime.Infrastructure.Ioc.Modules
             {
                 var mongoClient = c.Resolve<MongoClient>();
                 var database = mongoClient.GetDatabase(settings.Database);
-
                 return database;
             }).As<IMongoDatabase>();
 
             builder.RegisterType<MongoUserRepository>()
                 .As<IUserRepository>()
                 .InstancePerLifetimeScope();
+            Console.WriteLine("asdasd");
         }
     }
 }

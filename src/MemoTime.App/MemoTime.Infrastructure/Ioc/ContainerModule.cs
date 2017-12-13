@@ -8,6 +8,7 @@ namespace MemoTime.Infrastructure.Ioc
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule<MongoModule>();
+            builder.RegisterModule<ServiceModule>();
         }   
     }
 }

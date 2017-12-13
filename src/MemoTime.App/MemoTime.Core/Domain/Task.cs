@@ -2,7 +2,7 @@
 
 namespace MemoTime.Core.Domain
 {
-    public class Task
+    public class TodoTask
     {
         public Guid Id { get; protected set; }
         public string Name { get; protected set; }
