@@ -54,7 +54,7 @@ namespace MemoTime.Infrastructure.Services
                 throw new ServiceException(Exceptions.ErrorCodes.InvalidCredentials);
             }
 
-            var jwt = _jwtHandler.CreateToken(username, "user");
+            var jwt = _jwtHandler.CreateToken(user.Id, "user");
 
             return new TokenDto
             {

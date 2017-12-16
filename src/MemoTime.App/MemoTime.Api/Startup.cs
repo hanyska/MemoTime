@@ -37,7 +37,7 @@ namespace MemoTime.Api
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var jwtSettings = Configuration.GetSection("jwt").Get<JwtSettings>();
-            var mongoSettings = Configuration.GetSection("mongo").Get<MongoSettings>(); //it doesn't
+            var mongoSettings = Configuration.GetSection("mongo").Get<MongoSettings>();
             
             services.AddScoped<IJwtHandler, JwtHandler>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -61,7 +61,7 @@ namespace MemoTime.Api
             
             var builder = new ContainerBuilder();
             builder.Populate(services);
-            builder.RegisterModule(new ContainerModule());
+            builder.RegisterModule(new ContainerModule(Configuration));
             ApplicationContainer = builder.Build();
 
             return new AutofacServiceProvider(ApplicationContainer);

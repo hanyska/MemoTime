@@ -1,19 +1,18 @@
 version: "2"
-
 services:
-  memotime.backend:
+  memotime-backend:
     image: bielu000/memotime.backend:latest
     links:
       - mongo
     ports:
       - '5000:5050'
   
-  memotime.ui:
+  memotime-ui:
     image: bielu000/memotime.ui:latest
     links:
       - memotime.backend
     ports: 
-      - '8080:80'
+      - '8888:80'
 
   mongo:
     image: mongo
