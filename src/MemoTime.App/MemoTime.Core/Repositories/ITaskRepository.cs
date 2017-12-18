@@ -7,10 +7,8 @@ namespace MemoTime.Core.Repositories
 {
     public interface ITaskRepository
     {
-        Task AddAsync(TodoTask task);
         Task<TodoTask> GetAsync(Guid id);
-        Task<IEnumerable<TodoTask>> BrowseAsync(Guid projectId);
-        Task UpdateAsync();
+        Task UpdateAsync(TodoTask task);
         Task RemoveAsync(TodoTask task);
     }
 }

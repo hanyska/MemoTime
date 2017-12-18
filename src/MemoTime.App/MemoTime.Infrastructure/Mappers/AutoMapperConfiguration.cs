@@ -8,9 +8,11 @@ namespace MemoTime.Infrastructure.Mappers
     {
         public static IMapper Initialize()
             => new MapperConfiguration(
-                cfg => 
-                    cfg.CreateMap<Project, ProjectDto>()
-                )
+                cfg =>
+                {
+                    cfg.CreateMap<Project, ProjectDto>();
+                    cfg.CreateMap<TodoTask, TaskDto>();
+                })
         .CreateMapper();
     }
 }

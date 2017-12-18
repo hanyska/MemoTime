@@ -10,6 +10,11 @@ namespace MemoTime.Core.Domain
         public string Salt { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
 
+        protected User()
+        {
+            
+        }
+        
         public User(Guid id, string username, string email, 
             string password, string salt)
         {

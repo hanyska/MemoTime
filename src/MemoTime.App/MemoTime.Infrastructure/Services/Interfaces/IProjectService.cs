@@ -10,6 +10,7 @@ namespace MemoTime.Infrastructure.Services.Interfaces
         Task CreateAsync(Guid userId, string name);
         Task<ProjectDto> GetAsync(Guid id);
         Task<IEnumerable<ProjectDto>> BrowseAsync(Guid userId);
+        Task UpdateAsync(Guid projectId, string name);
         Task RemoveAsync(Guid id);
     }
 }

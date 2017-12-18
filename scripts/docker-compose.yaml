@@ -3,20 +3,24 @@ services:
   memotime-backend:
     image: bielu000/memotime.backend:latest
     links:
-      - mongo
+      - mssql
     ports:
       - '5000:5050'
   
   memotime-ui:
     image: bielu000/memotime.ui:latest
     links:
-      - memotime.backend
+      - memotime-backend
     ports: 
       - '8888:80'
 
-  mongo:
-    image: mongo
+  mssql:
+    image: microsoft/mssql-server-linux:latest
     volumes:
-      - /home:/data/db
+      - /home:/mssql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Zaq1asdfgh
     ports:
-      - '27017:27017'
+      - "1433:1433"
+

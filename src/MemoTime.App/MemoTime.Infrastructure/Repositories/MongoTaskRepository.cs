@@ -24,8 +24,13 @@ namespace MemoTime.Infrastructure.Repositories
         public async Task<TodoTask> GetAsync(Guid id)
             => await Tasks.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
 
+        public Task UpdateAsync(TodoTask task)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<TodoTask>> BrowseAsync(Guid projectId)
-            => await Task.FromResult(Tasks.AsQueryable().Where(x => x.ProjectId == projectId));
+            => await Task.FromResult(Tasks.AsQueryable().Where(x => x.Project.Id == projectId));
 
         public async Task UpdateAsync()
         {

@@ -23,7 +23,7 @@ namespace MemoTime.Infrastructure.Ioc.Modules
                 .As<IProjectService>()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterInstance<TaskService>()
+            builder.RegisterType<TaskService>()
                 .As<ITaskService>()
                 .InstancePerLifetimeScope();
         }

@@ -14,12 +14,15 @@ namespace MemoTime.Infrastructure.Services
     public class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly ITaskRepository _taskRepository;
         private readonly IMapper _mapper;
 
-        public ProjectService(IProjectRepository repository, IMapper mapper)
+        public ProjectService(IProjectRepository repository, IMapper mapper,
+            ITaskRepository taskRepository)
         {
             _projectRepository = repository;
             _mapper = mapper;
+            _taskRepository = taskRepository;
         }
         
         public async Task CreateAsync(Guid userId, string name)
@@ -31,13 +34,13 @@ namespace MemoTime.Infrastructure.Services
 
         public async Task<ProjectDto> GetAsync(Guid id)
         {
-            var project = _projectRepository.GetAsync(id);
+            var project = await _projectRepository.GetAsync(id);
 
             if (project == null)
             {
                 throw new ServiceException(ErrorCodes.ProjectNotExists);
             }
-
+            
             return _mapper.Map<ProjectDto>(project);
         }
 
@@ -49,8 +52,22 @@ namespace MemoTime.Infrastructure.Services
             {
                 throw new ServiceException(ErrorCodes.NoProjectsFound);
             }
-
+            
             return _mapper.Map<IEnumerable<ProjectDto>>(projects);
+        }
+
+        public async Task UpdateAsync(Guid projectId, string name)
+        {
+            var project = await _projectRepository.GetAsync(projectId);
+
+            if (project == null)
+            {
+                throw new ServiceException(ErrorCodes.ProjectNotExists);
+            }
+
+            project.SetName(name);
+
+            await _projectRepository.UpdateAsync(project);
         }
 
         public async Task RemoveAsync(Guid id)

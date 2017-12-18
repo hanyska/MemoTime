@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Threading.Tasks;
 using MemoTime.Core.Domain;
 using MemoTime.Infrastructure.Exceptions;
 using Microsoft.AspNetCore.Http;

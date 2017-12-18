@@ -9,8 +9,8 @@ namespace MemoTime.Infrastructure.Services.Interfaces
     {
         Task CreateAsync(string name, Guid userId, Guid projectId);
         Task<TaskDto> GetAsync(Guid id);
-        Task<IEnumerable<TaskDto>> BrowseAsync(Guid projectId);
+        Task<IEnumerable<TaskDto>> BrowseAsync(Guid projectId); //possilby to delete
         Task RemoveAsync(Guid id);
-        Task UpdateAsync();
+        Task UpdateAsync(Guid taskId, Guid projectId, string name, DateTime dueDate);
     }
 }

@@ -7,6 +7,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using MemoTime.Api.Framework;
 using MemoTime.Core.Repositories;
+using MemoTime.Infrastructure.Ef;
 using MemoTime.Infrastructure.Ioc;
 using MemoTime.Infrastructure.Repositories;
 using MemoTime.Infrastructure.Services;
@@ -15,6 +16,7 @@ using MemoTime.Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -37,7 +39,11 @@ namespace MemoTime.Api
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var jwtSettings = Configuration.GetSection("jwt").Get<JwtSettings>();
-            var mongoSettings = Configuration.GetSection("mongo").Get<MongoSettings>();
+            var sqlSettings = Configuration.GetSection("sql").Get<SqlSettings>();
+            services.AddDbContext<TodoContext>(x => x
+                .UseSqlServer(
+                    sqlSettings.ConnectionString, b => b.MigrationsAssembly("MemoTime.Api"))
+            );
             
             services.AddScoped<IJwtHandler, JwtHandler>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -63,7 +69,6 @@ namespace MemoTime.Api
             builder.Populate(services);
             builder.RegisterModule(new ContainerModule(Configuration));
             ApplicationContainer = builder.Build();
-
             return new AutofacServiceProvider(ApplicationContainer);
 
         }                                                                                                                

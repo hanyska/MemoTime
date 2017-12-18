@@ -31,7 +31,14 @@ namespace MemoTime.Infrastructure.Ioc.Modules
             builder.RegisterType<MongoUserRepository>()
                 .As<IUserRepository>()
                 .InstancePerLifetimeScope();
-            Console.WriteLine("asdasd");
+            
+            builder.RegisterType<MongoProjectRepository>()
+                .As<IProjectRepository>()
+                .InstancePerLifetimeScope();
+            
+           builder.RegisterType<MongoTaskRepository>()
+                .As<ITaskRepository>()
+                .InstancePerLifetimeScope();
         }
     }
 }

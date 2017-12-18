@@ -15,10 +15,11 @@ namespace MemoTime.Infrastructure.Ioc
         
         protected override void Load(ContainerBuilder builder)
         {
-//            builder.RegisterModule<MongoModule>();
             builder.RegisterModule(new SettingsModule(_configuration));
             builder.RegisterModule<ServiceModule>();
             builder.RegisterModule<RepositoryModule>();
+            builder.RegisterModule<MongoModule>();
+            builder.RegisterModule<SqlModule>();
         }   
     }
 }

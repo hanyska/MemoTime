@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MemoTime.Api.Controllers
 {
+    [Authorize]
     public class ProjectController : ApiBaseController
     {
         private readonly IProjectService _projectService;
@@ -16,7 +17,22 @@ namespace MemoTime.Api.Controllers
             _projectService = projectService;
         }
         
-        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var projects = await _projectService.BrowseAsync(UserId);
+
+            return Json(projects);
+        }
+        
+        [HttpGet("{projectId}")]
+        public async Task<IActionResult> Get(Guid projectId)
+        {
+            var project = await _projectService.GetAsync(projectId);
+
+            return Json(project);
+        }
+        
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Create command)
         {
@@ -24,14 +40,21 @@ namespace MemoTime.Api.Controllers
 
             return Created("/project", null);
         }
-
-        [Authorize]
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        
+        [HttpPut("{projectId}")] 
+        public async Task<IActionResult> Put([FromRoute]Guid projectId, [FromBody] Update command)
         {
-            var projects = await _projectService.BrowseAsync(UserId);
+            await _projectService.UpdateAsync(projectId, command.Name);
 
-            return Json(projects);
+            return NoContent();
+        }
+
+        [HttpDelete("{projectId}")]
+        public async Task<IActionResult> Delete(Guid projectId)
+        {
+            await _projectService.RemoveAsync(projectId);
+
+            return NoContent();
         }
     }
 }

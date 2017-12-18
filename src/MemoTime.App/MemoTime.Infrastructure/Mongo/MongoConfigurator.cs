@@ -14,11 +14,14 @@ namespace MemoTime.Infrastructure.Settings
             {
                 return;
             }
+            
+            RegisterConvetions();
         }
 
         public static void RegisterConvetions()
         {
             ConventionRegistry.Register("MemoTimeConventions", new MongoConvention(), x => true);
+            _initialized = true;
         }
         
         private class MongoConvention : IConventionPack
