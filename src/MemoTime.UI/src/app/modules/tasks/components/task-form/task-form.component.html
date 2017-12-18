@@ -1,0 +1,17 @@
+
+<div *ngIf="!hidden">
+  <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+    <div class="form-group">
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="name"
+             #name="ngModel">
+      <div [hidden]="name.valid || name.pristine"
+           class="alert alert-danger">
+        Nazwa zadania jest wymagana
+      </div>
+    </div>
+    <button type="submit" class="btn btn-danger" [disabled]="!taskForm.form.valid">Dodaj</button>
+    <button (click)="hidden = !hidden" class="btn btn-default">Anuluj</button>
+  </form>
+</div>

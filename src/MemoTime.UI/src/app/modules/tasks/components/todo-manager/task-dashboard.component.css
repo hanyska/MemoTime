@@ -1,0 +1,167 @@
+.top-menu {
+  background-color: #2F3336;
+  min-height: 38px;
+}
+
+.pre-scrollable {
+  width: 100px;
+  height: 100%;
+  overflow: scroll;
+}
+
+#footer {
+  background-color: #01A2D9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 60px;
+}
+.footer-block { margin: 20px 0; }
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+.project-list-container {
+  font-size: 10pt;
+}
+
+.project-list-container ul {
+  padding-left: 15px;
+  font-size: 11pt;
+}
+.left-menu-container {
+  margin-top: 50px;
+}
+.left-menu-container a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.left-menu-container ul li {
+  list-style: none;
+  padding: 5px;
+}
+
+.left-menu-container {
+  font-size: 13pt;
+}
+
+.left-menu-container ul {
+  padding: 0;
+}
+
+
+.task-list-container {
+  background-color: white;
+  padding: 20px;
+  padding-top: 40px;
+  min-height: 1500px;
+}
+
+.menu-buttons a {
+  color: white;
+  margin-right: 150px;
+}
+
+.topnav
+{
+  background-color: #2F3336;
+  text-align: center;
+}
+
+.menu
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+  min-height: 38px;
+  line-height: 200%;
+  display: block;
+}
+
+
+
+.topnav
+{
+  background-color: #2F3336;
+  text-align: center;
+}
+
+.menu
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+  min-height: 38px;
+  line-height: 200%;
+  display: block;
+}
+
+.leftmenu
+{
+  float: left;
+  letter-spacing: 2px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 20px;
+}
+
+.rightmenu
+{
+  position: fixed;
+  right: 50px;
+  float: right;
+}
+
+.rightmenu > li
+{
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.menu a
+{
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover
+{
+  color: #0a2b42;
+}
+
+.botton:hover
+{
+  background-color:  #f38c8c;
+}
+
+nav
+{
+  text-align: center;
+}
+
+.left
+{
+  padding: 10px;
+  padding-top: 150px;
+  float: left;
+  width: 197px;
+  height: 300px;
+  border-right: 1px dashed black;
+}
+
+.right
+{
+  padding-top: 10px;
+  width: 75%
+}
+
+.add-project  {
+  font-size: 8pt;
+}

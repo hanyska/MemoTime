@@ -1,0 +1,35 @@
+<!-- <header>
+  <nav id="topnav">
+
+    <ul class="menu">
+      <div class="leftmenu">
+        <li><a href="#">MemoTime</a></li>
+      </div>
+
+      <div class="rightmenu">
+
+
+      </div>
+
+    </ul>
+
+  </nav>
+
+</header> -->
+<header>
+  <nav class="navbar fixed-top topnav">
+    <ul class="menu">	
+      <div class="leftmenu">
+        <li><a href="#">MemoTime</a></li>
+      </div>
+
+      <div class="rightmenu">
+        <li class="botton"><a [routerLink]="['/login']" preserveQueryParams preserveFragment>Zaloguj</a></li>
+        <li class="botton" style="background-color: lightgreen"><a [routerLink]="['/register']"
+                                                                   preserveQueryParams preserveFragment>Zarejestruj</a></li>
+        <div style="clear:both"></div>
+      </div>
+    </ul>
+    
+  </nav>
+</header>

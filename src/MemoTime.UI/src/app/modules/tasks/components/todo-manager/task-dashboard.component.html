@@ -1,0 +1,67 @@
+<nav class="navbar fixed-top topnav">
+    <ul class="menu">
+        <div class="leftmenu">
+            <li><a href="#">MemoTime</a></li>
+        </div>
+
+        <div class="rightmenu">
+            <li><a [routerLink]="['account']" ><a href="#"><i class="material-icons">&#xE8B8;</i></a></a></li>
+            <div style="clear:both"></div>
+        </div>
+    </ul>
+
+</nav>
+<div class="container main-container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="left-menu">
+        <div class="left-menu-container">
+          <ul>
+            <li class="botton">
+      <span>
+        <a [routerLink]="['#']" preserveQueryParams preserveFragment><i class="material-icons icon-vertical-align ">today</i>Dzisiaj</a>
+      </span>
+            </li>
+            <li class="botton">
+              <a [routerLink]="['#']" preserveQueryParams preserveFragment><i class="material-icons icon-vertical-align ">today</i><span>Następne 7 dni</span></a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="project-list-container">
+          <ul [dragula]='"bag-one"' [dragulaModel]='projectList'>
+            <li *ngFor="let project of projectList" (click)="getProject(project.id)">{{project.name}}</li>
+          </ul>
+            <div class="add-project">
+                <a [routerLink]="['#']"><i class="material-icons">add</i><span>Dodaj projekt</span></a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8 task-list pre-scrollable">
+        <div *ngIf="list">
+            <div class="task-list-container">
+                <h5> {{ list.name }} </h5>
+              <hr>
+              <li *ngFor="let task of list.tasks">
+                {{ task.name }}
+              </li>
+
+                <app-task-form #taskForm
+                               (onSubmitted)="onCreateTaskSubmitted($event, list.id)">
+                </app-task-form>
+
+                <div class="add-task" *ngIf="taskForm.hidden">
+                    <span (click)="taskForm.hidden = !taskForm.hidden">
+                        <i class="material-icons">add</i>Dodaj zadanie
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
