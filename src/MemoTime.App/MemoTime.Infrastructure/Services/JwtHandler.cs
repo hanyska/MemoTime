@@ -14,19 +14,18 @@ namespace MemoTime.Infrastructure.Services
     {
         private readonly JwtSettings _settings;
         
-        public JwtHandler(IOptions<JwtSettings> settings)
+        public JwtHandler(JwtSettings settings)
         {
-            _settings = settings.Value;
-            Console.WriteLine(_settings.Key);
+            _settings = settings;
         }
-        public JwtDto CreateToken(string username, string role)
+        public JwtDto CreateToken(Guid userId, string role)
         {
             var now = DateTime.UtcNow;
             
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, username),
-                new Claim(JwtRegisteredClaimNames.UniqueName, username),
+                new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+                new Claim(JwtRegisteredClaimNames.UniqueName, userId.ToString()),
                 new Claim(ClaimTypes.Role, role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Iat, now.ToTimestamp().ToString()) 

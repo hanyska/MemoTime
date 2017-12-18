@@ -1,14 +1,26 @@
 version: "2"
-
 services:
-  memo-time-api:
-    image: memo.time.api
+  memotime-backend:
+    image: bielu000/memotime.backend:latest
+    links:
+      - mssql
     ports:
       - '5000:5050'
   
-  memo-time-ui:
-    image: memo.time.ui
+  memotime-ui:
+    image: bielu000/memotime.ui:latest
     links:
-      - memo-time-api
+      - memotime-backend
     ports: 
-      - '8080:80'
+      - '8888:80'
+
+  mssql:
+    image: microsoft/mssql-server-linux:latest
+    volumes:
+      - /home:/mssql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Zaq1asdfgh
+    ports:
+      - "1433:1433"
+

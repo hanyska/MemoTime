@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using MemoTime.Api.Framework;
 using MemoTime.Core.Repositories;
+using MemoTime.Infrastructure.Ef;
+using MemoTime.Infrastructure.Ioc;
 using MemoTime.Infrastructure.Repositories;
 using MemoTime.Infrastructure.Services;
 using MemoTime.Infrastructure.Services.Interfaces;
@@ -12,6 +16,7 @@ using MemoTime.Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -28,18 +33,19 @@ namespace MemoTime.Api
         }
 
         public IConfiguration Configuration { get; }
+        public IContainer ApplicationContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             var jwtSettings = Configuration.GetSection("jwt").Get<JwtSettings>();
-
+            var sqlSettings = Configuration.GetSection("sql").Get<SqlSettings>();
+            services.AddDbContext<TodoContext>(x => x
+                .UseSqlServer(
+                    sqlSettings.ConnectionString, b => b.MigrationsAssembly("MemoTime.Api"))
+            );
             
-            services.AddMvc();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IJwtHandler, JwtHandler>();
-            services.Configure<JwtSettings>(Configuration.GetSection("jwt"));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -50,27 +56,39 @@ namespace MemoTime.Api
                         ValidateAudience = false
                     };
                 });
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            services.AddCors(o => o.AddPolicy("MyPolicy", b =>
             {
-                builder.AllowAnyOrigin()
+                b.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
+            services.AddMvc();
 
-        }
+            
+            var builder = new ContainerBuilder();
+            builder.Populate(services);
+            builder.RegisterModule(new ContainerModule(Configuration));
+            ApplicationContainer = builder.Build();
+            return new AutofacServiceProvider(ApplicationContainer);
+
+        }                                                                                                                
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime appLifetime)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            MongoConfigurator.Initialize();
+            
             app.UseCors("MyPolicy");
             app.UserErrorHandlerMiddleware();
             app.UseAuthentication();
             app.UseMvc();
+
+            appLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
         }
     }
 }

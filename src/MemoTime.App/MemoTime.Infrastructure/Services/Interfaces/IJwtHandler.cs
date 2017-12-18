@@ -1,9 +1,10 @@
-﻿using MemoTime.Infrastructure.DTO;
+﻿using System;
+using MemoTime.Infrastructure.DTO;
 
 namespace MemoTime.Infrastructure.Services
 {
     public interface IJwtHandler
     {
-        JwtDto CreateToken(string username, string role);
+        JwtDto CreateToken(Guid userId, string role);
     }
 }
