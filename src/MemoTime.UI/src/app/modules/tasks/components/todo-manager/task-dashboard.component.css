@@ -165,3 +165,11 @@ nav
 .add-project  {
   font-size: 8pt;
 }
+
+.project-list-container {
+  cursor: pointer;
+}
+
+.add-task {
+  cursor: pointer;
+}

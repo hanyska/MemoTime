@@ -10,7 +10,6 @@ export class AuthService  {
 
   getToken() : string {
       let savedToken = localStorage.getItem("auth-token")
-
       if (savedToken == null)
       {
           return null;

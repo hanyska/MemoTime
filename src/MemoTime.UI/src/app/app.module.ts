@@ -53,7 +53,6 @@ import {ProjectFormComponent} from "./modules/tasks/components/project-form/proj
     AppRoutingModule,
     HomeModule,
     DragulaModule,
-    NgbModule.forRoot(),
   ],
   providers: [ UsersService, Guard, ProjectsService, AuthService,
       {
