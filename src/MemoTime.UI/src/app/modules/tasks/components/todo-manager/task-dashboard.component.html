@@ -35,7 +35,15 @@
             <li *ngFor="let project of projectList" (click)="getProject(project.id)">{{project.name}}</li>
           </ul>
             <div class="add-project">
-                <a [routerLink]="['#']"><i class="material-icons">add</i><span>Dodaj projekt</span></a>
+                <app-project-form #projectForm
+                               (onSubmitted)="onCreateProjectSubmitted($event)">
+                </app-project-form>
+
+                <div class="add-task" *ngIf="projectForm.hidden">
+                    <span (click)="projectForm.hidden = !projectForm.hidden">
+                        <i class="material-icons">add</i>Dodaj projekt
+                    </span>
+                </div>
             </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ namespace MemoTime.Api.Controllers
         {
             await _projectService.CreateAsync(UserId, command.Name);
 
-            return Created("/project", null);
+            return Created("/project", new {});
         }
         
         [HttpPut("{projectId}")] 

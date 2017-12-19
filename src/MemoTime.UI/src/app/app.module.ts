@@ -26,6 +26,7 @@ import {TokenMiddleware} from "./sharded/services/token.middleware";
 import {TodoManagerComponent} from "./modules/tasks/components/todo-manager/task-dashboard.component";
 import {TaskFormComponent} from "./modules/tasks/components/task-form/task-form.component";
 import {TasksService} from "./modules/tasks/tasks.service";
+import {ProjectFormComponent} from "./modules/tasks/components/project-form/project-form.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {TasksService} from "./modules/tasks/tasks.service";
     AccountComponent, 
     ProfileComponent,
     LogoutComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    ProjectFormComponent
 
   ],
   imports: [

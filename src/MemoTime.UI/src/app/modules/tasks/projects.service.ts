@@ -13,7 +13,7 @@ const
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-const projectsUlr = "http://localhost:5000/project"
+const projectUrl = "http://localhost:5000/project"
 const apiUrl = "http://localhost:5000"
 
 @Injectable()
@@ -22,12 +22,16 @@ export class ProjectsService {
   constructor(private http: HttpClient) {
   }
 
+  createProject(project: Project): Observable<Response> {
+    return this.http.post(projectUrl, project, httpOptions)
+  }
+
   getProjects(): Observable<Project[]>{
-    return this.http.get<Project[]>(projectsUlr)
+    return this.http.get<Project[]>(projectUrl)
   }
 
   getProject(id: number): Observable<Project> {
-      return this.http.get<Project>(projectsUlr+"/"+id)
+      return this.http.get<Project>(projectUrl+"/"+id)
   }
 }
 

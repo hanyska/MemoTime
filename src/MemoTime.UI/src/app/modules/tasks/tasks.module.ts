@@ -4,6 +4,7 @@ import {DragulaModule} from "ng2-dragula";
 import {ProjectsService} from "./projects.service";
 import {TodoManagerComponent} from "./components/todo-manager/task-dashboard.component";
 import { TaskFormComponent } from './components/task-form/task-form.component';
+import { ProjectFormComponent } from './components/project-form/project-form.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
   ],
   exports: [
   ],
-  declarations: [TodoManagerComponent, TaskFormComponent],
+  declarations: [TodoManagerComponent, TaskFormComponent, ProjectFormComponent],
 })
 export class TasksModule { }

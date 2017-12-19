@@ -38,6 +38,13 @@ export class TodoManagerComponent implements OnInit {
         })
   }
 
+    onCreateProjectSubmitted(project: Project): void {
+        this.projectService.createProject(project)
+            .subscribe(r => {
+              this.ngOnInit()
+            });
+    }
+
   getProject(id: number): void {
     this.projectService.getProject(id)
       .subscribe(t => this.list = t)

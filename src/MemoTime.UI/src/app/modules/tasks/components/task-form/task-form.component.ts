@@ -28,6 +28,5 @@ export class TaskFormComponent implements OnInit{
 
     ngOnInit(): void {
         this.model = new Task(null)
-        console.log("dasd")
     }
 }
