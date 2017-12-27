@@ -49,8 +49,9 @@
       </div>
     </div>
 
-    <div class="col-sm-9 task-list pre-scrollable">
+    <div class="col-sm-9 task-list">
         <div *ngIf="list">
+            <div class="overflow-wrapper">
             <div class="task-list-container">
                 <h5> {{ list.name }} </h5>
               <hr>
@@ -92,7 +93,7 @@
                 <app-task-form #taskForm
                                (onAdded)="onCreateTaskSubmitted($event, list.id)">
                 </app-task-form>
-
+            </div>
             </div>
         </div>
     </div>
