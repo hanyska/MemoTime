@@ -27,7 +27,8 @@ import {TodoManagerComponent} from "./modules/tasks/components/todo-manager/task
 import {TaskFormComponent} from "./modules/tasks/components/task-form/task-form.component";
 import {TasksService} from "./modules/tasks/tasks.service";
 import {ProjectFormComponent} from "./modules/tasks/components/project-form/project-form.component";
-
+import {TaskActionsComponent} from "./modules/tasks/components/task-actions/task-actions.component";
+import { ClickOutsideModule } from 'ng-click-outside'
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import {ProjectFormComponent} from "./modules/tasks/components/project-form/proj
     ProfileComponent,
     LogoutComponent,
     TaskFormComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
+    TaskActionsComponent,
 
   ],
   imports: [
@@ -53,6 +55,8 @@ import {ProjectFormComponent} from "./modules/tasks/components/project-form/proj
     AppRoutingModule,
     HomeModule,
     DragulaModule,
+    NgbModule.forRoot(),
+    ClickOutsideModule
   ],
   providers: [ UsersService, Guard, ProjectsService, AuthService,
       {

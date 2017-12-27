@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Project} from "../../../../sharded/models/Proj";
 import {ProjectsService} from "../../projects.service";
-import { FormGroup } from '@angular/forms';
 import {Task} from "../../../../sharded/models/Task";
 import {TasksService} from "../../tasks.service";
 
@@ -38,6 +37,13 @@ export class TodoManagerComponent implements OnInit {
         })
   }
 
+  onEditTaskSubmitted(task: Task): void {
+    this.taskService.editTask(task)
+        .subscribe(r =>
+        {
+        })
+    }
+
     onCreateProjectSubmitted(project: Project): void {
         this.projectService.createProject(project)
             .subscribe(r => {
@@ -48,5 +54,9 @@ export class TodoManagerComponent implements OnInit {
   getProject(id: number): void {
     this.projectService.getProject(id)
       .subscribe(t => this.list = t)
+  }
+
+  edit(value: string) : void {
+    console.log(value)
   }
 }

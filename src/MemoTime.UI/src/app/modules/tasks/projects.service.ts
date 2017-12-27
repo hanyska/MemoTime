@@ -22,7 +22,7 @@ export class ProjectsService {
   constructor(private http: HttpClient) {
   }
 
-  createProject(project: Project): Observable<Response> {
+  createProject(project: Project): Observable<any> {
     return this.http.post(projectUrl, project, httpOptions)
   }
 

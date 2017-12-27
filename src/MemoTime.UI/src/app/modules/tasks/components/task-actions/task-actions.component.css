@@ -1,0 +1,11 @@
+.task-actions-component {
+
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.task-actions {
+    font-size: 10pt;
+}

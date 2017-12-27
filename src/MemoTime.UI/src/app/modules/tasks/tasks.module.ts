@@ -5,6 +5,7 @@ import {ProjectsService} from "./projects.service";
 import {TodoManagerComponent} from "./components/todo-manager/task-dashboard.component";
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { ProjectFormComponent } from './components/project-form/project-form.component';
+import { TaskActionsComponent } from './components/task-actions/task-actions.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { ProjectFormComponent } from './components/project-form/project-form.com
   ],
   exports: [
   ],
-  declarations: [TodoManagerComponent, TaskFormComponent, ProjectFormComponent],
+  declarations: [TodoManagerComponent, TaskFormComponent, ProjectFormComponent, TaskActionsComponent],
+  bootstrap: [  ]
 })
 export class TasksModule { }

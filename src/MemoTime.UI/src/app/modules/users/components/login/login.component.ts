@@ -5,6 +5,7 @@ import {UsersService} from "../../users.service";
 import {AuthService} from "../../../../sharded/services/auth.service";
 import {User} from "../../../../sharded/models/User";
 import {ERROR_CODES} from "../../../../sharded/models/ErrorCodes";
+import {AuthToken} from "../../../../sharded/models/AuthToken";
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.usersService.loginUser(this.model).subscribe(
-      data => {
+        (data: AuthToken) => {
         this.message = "Zostałeś pomyślnie zalogowany"
         this.authService.setToken(data)
         setTimeout((router: Router) => {

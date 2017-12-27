@@ -49,27 +49,54 @@
       </div>
     </div>
 
-    <div class="col-sm-8 task-list pre-scrollable">
+    <div class="col-sm-9 task-list pre-scrollable">
         <div *ngIf="list">
             <div class="task-list-container">
                 <h5> {{ list.name }} </h5>
               <hr>
-              <li *ngFor="let task of list.tasks">
-                {{ task.name }}
-              </li>
+                <div class="single-task" id="{{task.id}}"
+                     *ngFor="let task of list.tasks">
+                    <div class="row task-container">
+                        <div *ngIf="editTask.hidden" class="col-lg-12"
+                             (mouseenter)="taskActions.hidden = !taskActions.hidden"
+                             (mouseleave)="taskActions.hidden = !taskActions.hidden">
+                            <div class="row">
+                            <div
+                                    (clickOutside)="editTask.onClickedOutside($event)"
+                                    (click)="editTask.onClickedInside($event)"
 
-                <app-task-form #taskForm
-                               (onSubmitted)="onCreateTaskSubmitted($event, list.id)">
-                </app-task-form>
+                                 class="col-lg-11 task-name">{{ task.name }}
+                            </div>
+
+                            <div class="col-lg-1 task-actions">
+                                <app-task-actions  #taskActions></app-task-actions>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 task-editor">
+                            <app-task-form #editTask
+                                [task]="task"
+                                (onEdited)="onEditTaskSubmitted($event)">
+                            </app-task-form>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="add-task" *ngIf="taskForm.hidden">
                     <span (click)="taskForm.hidden = !taskForm.hidden">
                         <i class="material-icons">add</i>Dodaj zadanie
                     </span>
                 </div>
+
+                <app-task-form #taskForm
+                               (onAdded)="onCreateTaskSubmitted($event, list.id)">
+                </app-task-form>
+
             </div>
         </div>
     </div>
+    <div class="col-lg-1"></div>
   </div>
 </div>
 

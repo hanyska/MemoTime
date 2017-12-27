@@ -52,7 +52,9 @@
   padding: 0;
 }
 
-
+.task-list {
+  padding-right: 150px;
+}
 .task-list-container {
   background-color: white;
   padding: 20px;
@@ -172,4 +174,16 @@ nav
 
 .add-task {
   cursor: pointer;
+}
+
+.single-task {
+  padding-top: 10px;
+  border-bottom: 1px solid beige;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.single-task .task-container {
+    min-height: 35px;
 }

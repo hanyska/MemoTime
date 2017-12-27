@@ -24,15 +24,15 @@ export class UsersService {
   constructor(private http: HttpClient) {
   }
 
-  registerUser(user: User): Observable<User>{
+  registerUser(user: User): Observable<any>{
     return this.http.post(this.registerUrl, user, httpOptions)
   }
 
-  loginUser(user: User): Observable<AuthToken>{
+  loginUser(user: User): Observable<any>{
     return this.http.post(this.loginUrl, user, httpOptions)
   }
 
-  logoutUser(): Observable<Response> {
-    return this.http.post(this.logoutUrl, null, this.http)
+  logoutUser(): Observable<any> {
+    return this.http.post(this.logoutUrl, null, httpOptions)
   }
 }

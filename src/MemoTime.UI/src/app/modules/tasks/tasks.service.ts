@@ -13,7 +13,7 @@ const
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-const createTaskUrl = "http://localhost:5000/task"
+const taskUrl = "http://localhost:5000/task"
 const apiUrl = "http://localhost:5000"
 
 
@@ -22,8 +22,13 @@ export class TasksService {
 
   constructor(private http: HttpClient) { }
 
-  createTask(task: Task): Observable<Response> {
-      return this.http.post(createTaskUrl, task, httpOptions)
+  createTask(task: Task): Observable<any> {
+      return this.http.post(taskUrl, task, httpOptions)
+  }
+
+  editTask(task: Task): Observable<any> {
+      console.log("Edit task completed")
+    return this.http.put(taskUrl+'/'+task.id, task, httpOptions)
   }
 
 }

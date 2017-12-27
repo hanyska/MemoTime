@@ -1,32 +1,70 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output, ElementRef, Renderer  } from '@angular/core';
 import {Task} from "../../../../sharded/models/Task";
 import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
-  styleUrls: ['./task-form.component.css']
+  styleUrls: ['./task-form.component.css'],
 })
 export class TaskFormComponent implements OnInit{
-
-    @Input()  name: string;
-    @Output() onSubmitted = new EventEmitter<Task>();
+    @Input() task: Task
+    @Output() onAdded = new EventEmitter<Task>();
+    @Output() onEdited = new EventEmitter<Task>();
 
     hidden = true
-
+    datePickerHidden = true
+    mode: string
     model: Task
-
     submitted = false;
+    subbmitActionName = 'Dodaj'
 
-    constructor() { }
+    constructor(private elementRef: ElementRef) { }
 
-    onSubmit(taskForm: NgForm) {
+    processForm(form: NgForm): void {
+        if (this.mode == 'create') {
+            this.create(form)
+        } else {
+            this.edit(form)
+        }
+    }
+    create(taskForm: NgForm) {
         let t = new Task(this.model.name)
-        this.onSubmitted.emit(t);
+        this.onAdded.emit(t);
         this.submitted = true;
         taskForm.resetForm()
     }
 
+    edit(taskForm: NgForm) {
+        this.onEdited.emit(this.model)
+        this.submitted = true
+    }
+
     ngOnInit(): void {
+        if (this.task == null) {
+            this.initAdd()
+        }else {
+            this.initEdit()
+        }
+    }
+
+    private initAdd(): void {
+        this.mode = 'create'
         this.model = new Task(null)
+    }
+
+    private initEdit(): void {
+        this.model = this.task
+        this.mode = 'edit'
+        this.subbmitActionName = 'Zapisz'
+    }
+
+    onClickedInside(event: Event): void {
+        console.log("Inside")
+        this.hidden = false;
+    }
+
+    onClickedOutside(event: Event, hidden: boolean): void {
+        console.log(this.elementRef)
+
     }
 }
