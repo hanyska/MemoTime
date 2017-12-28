@@ -25,9 +25,9 @@ namespace MemoTime.Infrastructure.Services
             _taskRepository = taskRepository;
         }
         
-        public async Task CreateAsync(Guid userId, string name)
+        public async Task CreateAsync(Guid id, Guid userId, string name)
         {
-            var project = new Project(userId, name);
+            var project = new Project(id, userId, name);
 
             await _projectRepository.AddAsync(project);
         }

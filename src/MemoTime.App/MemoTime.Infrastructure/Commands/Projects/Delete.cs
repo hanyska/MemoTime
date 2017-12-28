@@ -3,9 +3,8 @@ using MemoTime.Infrastructure.Handlers;
 
 namespace MemoTime.Infrastructure.Commands.Projects
 {
-    public class Update: ICommand
+    public class Delete: ICommand
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
     }
 }

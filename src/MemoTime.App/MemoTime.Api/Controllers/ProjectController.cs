@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Projects;
 using MemoTime.Infrastructure.Handlers;
+using MemoTime.Infrastructure.Handlers.Projects;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +39,11 @@ namespace MemoTime.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Create command)
         {
-            await _projectService.CreateAsync(UserId, command.Name);
+            var id = Guid.NewGuid();
+            command.Id = id;
+            command.UserId = UserId;
+            
+            await CommandDispatcher.DispatchAsync(command);
 
             return Created("/project", new {});
         }
@@ -46,7 +51,9 @@ namespace MemoTime.Api.Controllers
         [HttpPut("{projectId}")] 
         public async Task<IActionResult> Put([FromRoute]Guid projectId, [FromBody] Update command)
         {
-            await _projectService.UpdateAsync(projectId, command.Name);
+            command.Id = projectId;
+            
+            await CommandDispatcher.DispatchAsync(command);
 
             return NoContent();
         }
@@ -54,7 +61,7 @@ namespace MemoTime.Api.Controllers
         [HttpDelete("{projectId}")]
         public async Task<IActionResult> Delete(Guid projectId)
         {
-            await _projectService.RemoveAsync(projectId);
+            await CommandDispatcher.DispatchAsync(new Delete {Id = projectId});
 
             return NoContent();
         }

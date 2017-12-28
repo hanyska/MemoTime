@@ -24,8 +24,9 @@ namespace MemoTime.Core.Domain
             
         }
         
-        public Project(Guid userId, string name)
+        public Project(Guid id, Guid userId, string name)
         {
+            Id = id;
             UserId = userId;
             Name = name;
         }
