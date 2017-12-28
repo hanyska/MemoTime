@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Projects;
+using MemoTime.Infrastructure.Extensions;
 using MemoTime.Infrastructure.Handlers;
 using MemoTime.Infrastructure.Handlers.Projects;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MemoTime.Api.Controllers
 {
@@ -13,11 +15,13 @@ namespace MemoTime.Api.Controllers
     public class ProjectController : ApiBaseController
     {
         private readonly IProjectService _projectService;
-
+        private readonly IMemoryCache _cache;
+        
         public ProjectController(IProjectService projectService, 
-            ICommandDispatcher dispatcher): base(dispatcher)
+            ICommandDispatcher dispatcher, IMemoryCache cache): base(dispatcher)
         {
             _projectService = projectService;
+            _cache = cache;
         }
         
         [HttpGet]
@@ -45,7 +49,9 @@ namespace MemoTime.Api.Controllers
             
             await CommandDispatcher.DispatchAsync(command);
 
-            return Created("/project", new {});
+            var project = _cache.GetProject(command.Id);
+
+            return Created("/project", project);
         }
         
         [HttpPut("{projectId}")] 
