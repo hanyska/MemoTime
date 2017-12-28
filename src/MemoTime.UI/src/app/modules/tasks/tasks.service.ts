@@ -27,8 +27,10 @@ export class TasksService {
   }
 
   editTask(task: Task): Observable<any> {
-      console.log("Edit task completed")
     return this.http.put(taskUrl+'/'+task.id, task, httpOptions)
   }
 
+  deleteTask(task: Task): Observable<any> {
+      return this.http.delete(taskUrl+'/'+task.id, httpOptions)
+  }
 }

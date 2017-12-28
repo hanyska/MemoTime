@@ -26,7 +26,7 @@ namespace MemoTime.Infrastructure.Services
             _projectRepository = projectRepository;
         }
         
-        public async Task CreateAsync(string name, Guid userId, Guid projectId)
+        public async Task CreateAsync(Guid id, string name, Guid userId, Guid projectId)
         {
             var project = await _projectRepository.GetAsync(projectId);
 
@@ -35,7 +35,7 @@ namespace MemoTime.Infrastructure.Services
                 throw new ServiceException(ErrorCodes.ProjectNotExist);
             }
             
-            project.AddTask(name);
+            project.AddTask(id, name);
 
             await _projectRepository.UpdateAsync(project);
         }

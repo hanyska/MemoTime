@@ -11,7 +11,7 @@
       <div class="col-lg-3 task-date">
           <div class="input-group">
               <input class="form-control" placeholder="yyyy-mm-dd"
-                     name="d2" #c2="ngModel" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker">
+                     name="d2" #c2="ngModel" [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker"  [(ngModel)]="model.dueDate" value="mode.dueDate">
               <button class="input-group-addon" (click)="d2.toggle()" type="button">
                   <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
               </button>

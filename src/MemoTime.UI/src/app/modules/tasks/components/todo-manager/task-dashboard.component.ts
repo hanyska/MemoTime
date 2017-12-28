@@ -3,6 +3,7 @@ import {Project} from "../../../../sharded/models/Proj";
 import {ProjectsService} from "../../projects.service";
 import {Task} from "../../../../sharded/models/Task";
 import {TasksService} from "../../tasks.service";
+import { take } from 'rxjs/operators/take';
 
 @Component({
   selector: 'app-task-dashboard',
@@ -44,12 +45,21 @@ export class TodoManagerComponent implements OnInit {
         })
     }
 
-    onCreateProjectSubmitted(project: Project): void {
-        this.projectService.createProject(project)
-            .subscribe(r => {
-              this.ngOnInit()
-            });
-    }
+  onDeleteTaskSubmitted(task: Task): void {
+    this.taskService.deleteTask(task)
+        .subscribe(r => 
+        {
+          let index = this.list.tasks.findIndex(d => d.id == task.id)
+          this.list.tasks.splice(index, 1)
+        })
+  }  
+
+  onCreateProjectSubmitted(project: Project): void {
+      this.projectService.createProject(project)
+          .subscribe(r => {
+            this.ngOnInit()
+          });
+  }
 
   getProject(id: number): void {
     this.projectService.getProject(id)

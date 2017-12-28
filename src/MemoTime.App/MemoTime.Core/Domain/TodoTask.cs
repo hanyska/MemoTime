@@ -17,8 +17,9 @@ namespace MemoTime.Core.Domain
             
         }
         
-        public TodoTask(string name, Guid userId, Project project)
+        public TodoTask(Guid id, string name, Guid userId, Project project)
         {
+            Id = id;
             Name = name;
             UserId = userId;
             CreatedAt = DateTime.UtcNow;

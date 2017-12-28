@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Projects;
+using MemoTime.Infrastructure.Handlers;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ namespace MemoTime.Api.Controllers
     {
         private readonly IProjectService _projectService;
 
-        public ProjectController(IProjectService projectService)
+        public ProjectController(IProjectService projectService, ICommandDispatcher dispatcher): base(dispatcher)
         {
             _projectService = projectService;
         }

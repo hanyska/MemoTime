@@ -1,5 +1,6 @@
-import { Component,Input, OnInit } from '@angular/core';
 import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
+import {Task} from "../../../../sharded/models/Task";
+import { Component, OnInit, EventEmitter, Input, Output, ElementRef, Renderer  } from '@angular/core';
 
 @Component({
   selector: 'app-task-actions',
@@ -8,13 +9,20 @@ import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbDropdownConfig]
 })
 export class TaskActionsComponent implements OnInit {
+  @Input() task: Task
+  @Output() onDeleted = new EventEmitter<Task>()
+
   constructor(config: NgbDropdownConfig) {
-    //config.placement = 'bottom-right'
   }
 
   hidden: boolean = true
   menuHidden: boolean = true
+  
   ngOnInit() {
+  }
+
+  delete(): void {
+    this.onDeleted.emit(this.task)
   }
 
 }

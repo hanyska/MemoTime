@@ -30,9 +30,9 @@ namespace MemoTime.Core.Domain
             Name = name;
         }
 
-        public void AddTask(string name)
+        public void AddTask(Guid id, string name)
         {
-           _tasks.Add(new TodoTask(name, UserId, this));
+           _tasks.Add(new TodoTask(id, name, UserId, this));
         }
 
         public void SetName(string name)

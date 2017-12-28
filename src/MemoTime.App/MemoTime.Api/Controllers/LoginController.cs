@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Users;
+using MemoTime.Infrastructure.Handlers;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,7 +10,7 @@ namespace MemoTime.Api.Controllers
     {
         private readonly IUserService _userService;
         
-        public LoginController(IUserService userService)
+        public LoginController(IUserService userService, ICommandDispatcher dispatcher) : base(dispatcher)
         {
             _userService = userService;
         }

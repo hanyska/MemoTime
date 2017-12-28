@@ -20,6 +20,7 @@ namespace MemoTime.Infrastructure.Ioc
             builder.RegisterModule<RepositoryModule>();
             builder.RegisterModule<MongoModule>();
             builder.RegisterModule<SqlModule>();
+            builder.RegisterModule<CommandModule>();
         }   
     }
 }

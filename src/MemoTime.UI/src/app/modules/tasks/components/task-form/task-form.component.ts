@@ -59,12 +59,9 @@ export class TaskFormComponent implements OnInit{
     }
 
     onClickedInside(event: Event): void {
-        console.log("Inside")
         this.hidden = false;
     }
 
     onClickedOutside(event: Event, hidden: boolean): void {
-        console.log(this.elementRef)
-
     }
 }

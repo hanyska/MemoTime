@@ -2,6 +2,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Tasks;
+using MemoTime.Infrastructure.Handlers;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,7 @@ namespace MemoTime.Api.Controllers
     {
         private readonly ITaskService _taskService;
         
-        public TaskController(ITaskService taskService)
+        public TaskController(ITaskService taskService, ICommandDispatcher dispatcher) : base(dispatcher)
         {
             _taskService = taskService;
         }
@@ -21,8 +22,13 @@ namespace MemoTime.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Create command)
         {
-            await _taskService.CreateAsync(command.Name, UserId, command.ProjectId);
+            var id = Guid.NewGuid();
+            //await _taskService.CreateAsync(id, command.Name, UserId, command.ProjectId);
+            command.Id = id;
+            command.UserId = UserId;
 
+            await CommandDispatcher.DispatchAsync(command);
+            
             return Created("task/", new {});
         }
         
