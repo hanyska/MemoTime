@@ -2,10 +2,12 @@
 using System.Net;
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Tasks;
+using MemoTime.Infrastructure.Extensions;
 using MemoTime.Infrastructure.Handlers;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MemoTime.Api.Controllers
 {
@@ -13,10 +15,13 @@ namespace MemoTime.Api.Controllers
     public class TaskController : ApiBaseController
     {
         private readonly ITaskService _taskService;
+        private readonly IMemoryCache _cache;
         
-        public TaskController(ITaskService taskService, ICommandDispatcher dispatcher) : base(dispatcher)
+        public TaskController(ITaskService taskService, ICommandDispatcher dispatcher, 
+            IMemoryCache cache) : base(dispatcher)
         {
             _taskService = taskService;
+            _cache = cache;
         }
 
         [HttpPost]
@@ -27,8 +32,10 @@ namespace MemoTime.Api.Controllers
             command.UserId = UserId;
 
             await CommandDispatcher.DispatchAsync(command);
+
+            var task = _cache.GetTask(command.Id);
             
-            return Created("task/", new {});
+            return Created("task/", task);
         }
         
         [HttpPut("{taskId}")]

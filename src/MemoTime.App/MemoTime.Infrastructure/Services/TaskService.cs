@@ -42,7 +42,14 @@ namespace MemoTime.Infrastructure.Services
 
         public async Task<TaskDto> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var task = await _taskRepository.GetAsync(id);
+
+            if (task == null)
+            {
+                throw new ServiceException(ErrorCodes.TaskNotExist);
+            }
+
+            return _mapper.Map<TaskDto>(task);
         }
 
         public async  Task<IEnumerable<TaskDto>> BrowseAsync(Guid projectId)

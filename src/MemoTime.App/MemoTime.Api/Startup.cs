@@ -44,7 +44,8 @@ namespace MemoTime.Api
                 .UseSqlServer(
                     sqlSettings.ConnectionString, b => b.MigrationsAssembly("MemoTime.Api"))
             );
-            
+
+            services.AddMemoryCache();
             services.AddScoped<IJwtHandler, JwtHandler>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

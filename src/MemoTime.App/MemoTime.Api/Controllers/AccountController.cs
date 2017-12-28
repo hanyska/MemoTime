@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MemoTime.Infrastructure.Commands.Users;
+using MemoTime.Infrastructure.Handlers;
 using MemoTime.Infrastructure.Services.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -9,13 +10,12 @@ namespace MemoTime.Api.Controllers
 {
     [EnableCors("MyPolicy")]
     [Route("[controller]")]
-    public class AccountController : Controller
+    public class AccountController : ApiBaseController
     {
         private readonly IUserService _userService;
 
-        public AccountController(IUserService userService)
+        public AccountController(ICommandDispatcher dispatcher): base(dispatcher)
         {
-            _userService = userService;
         }
         
 	[HttpPost]
@@ -23,16 +23,9 @@ namespace MemoTime.Api.Controllers
         {
             command.Id = Guid.NewGuid();
 
-            await _userService.RegisterAsync(command.Id, command.Username, 
-                command.Email, command.Password);
-
+            await CommandDispatcher.DispatchAsync(command);
+            
             return Created($"/account/{command.Id}", new {});
-        }
-
-	[HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            return Json("Dziala");
         }
     }
 }

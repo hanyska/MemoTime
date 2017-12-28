@@ -1,8 +1,9 @@
 ﻿using System;
+using MemoTime.Infrastructure.Handlers;
 
 namespace MemoTime.Infrastructure.Commands.Users
 {
-    public class Register
+    public class Register: ICommand
     {
         public Guid Id { get; set; }
         public string Username { get; set; }
