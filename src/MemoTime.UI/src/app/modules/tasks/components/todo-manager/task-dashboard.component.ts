@@ -34,7 +34,7 @@ export class TodoManagerComponent implements OnInit {
     this.taskService.createTask(task)
         .subscribe(r =>
         {
-          this.list.tasks.push(task)
+          this.list.tasks.push(r)
         })
   }
 

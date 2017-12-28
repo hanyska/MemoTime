@@ -22,7 +22,7 @@ export class TasksService {
 
   constructor(private http: HttpClient) { }
 
-  createTask(task: Task): Observable<any> {
+  createTask(task: Task): Observable<Task> {
       return this.http.post(taskUrl, task, httpOptions)
   }
 
