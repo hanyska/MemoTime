@@ -13,7 +13,8 @@ namespace MemoTime.Api.Controllers
     {
         private readonly IProjectService _projectService;
 
-        public ProjectController(IProjectService projectService, ICommandDispatcher dispatcher): base(dispatcher)
+        public ProjectController(IProjectService projectService, 
+            ICommandDispatcher dispatcher): base(dispatcher)
         {
             _projectService = projectService;
         }

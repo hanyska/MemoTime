@@ -23,7 +23,6 @@ namespace MemoTime.Api.Controllers
         public async Task<IActionResult> Post([FromBody] Create command)
         {
             var id = Guid.NewGuid();
-            //await _taskService.CreateAsync(id, command.Name, UserId, command.ProjectId);
             command.Id = id;
             command.UserId = UserId;
 
@@ -35,15 +34,17 @@ namespace MemoTime.Api.Controllers
         [HttpPut("{taskId}")]
         public async Task<IActionResult> Put([FromRoute] Guid taskId, [FromBody] Update command)
         {
-            await _taskService.UpdateAsync(taskId, command.ProjectId, command.Name, command.DueDate);
+            command.TaskId = taskId;
 
+            await CommandDispatcher.DispatchAsync(command);
+            
             return NoContent();
         }
 
         [HttpDelete("{taskId}")]
         public async Task<IActionResult> Delete(Guid taskId)
         {
-            await _taskService.RemoveAsync(taskId);
+            await CommandDispatcher.DispatchAsync(new Delete{Id = taskId});
 
             return NoContent();
         }
