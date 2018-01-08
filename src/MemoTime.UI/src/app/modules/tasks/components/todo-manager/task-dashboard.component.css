@@ -1,7 +1,3 @@
-html, body {
-  overflow: hidden
-}
-
 .top-menu {
   background-color: #2F3336;
   min-height: 38px;
@@ -22,6 +18,7 @@ html, body {
   height: 60px;
 }
 .footer-block { margin: 20px 0; }
+
 
 ::-webkit-scrollbar {
   display: none;
@@ -54,21 +51,13 @@ html, body {
 .left-menu-container ul {
   padding: 0;
 }
-.task-list .overflow-wrapper {
-  height:100vh;
-  overflow-y: scroll;
-  min-width: 900px; /* Adjust to other browsers */
-}
-.task-list {
-  padding-right: 150px;
-  overflow: hidden;
-}
+
+
 .task-list-container {
   background-color: white;
   padding: 20px;
   padding-top: 40px;
-  max-width: 78%;
-  margin-bottom: 100px;
+  min-height: 1500px;
 }
 
 .menu-buttons a {
@@ -175,30 +164,4 @@ nav
 
 .add-project  {
   font-size: 8pt;
-}
-
-.project-list-container {
-  cursor: pointer;
-}
-
-.add-task {
-  cursor: pointer;
-}
-
-.single-task {
-  padding-top: 10px;
-  border-bottom: 1px solid beige;
-  display: inline-block;
-  width: 100%;
-  cursor: pointer;
-}
-
-.single-task .task-container {
-    min-height: 35px;
-}
-
-.project-list-container .project-name {
-  font-size: 13pt;
-  padding-top: 3px;
-  padding-bottom: 3px;
 }
