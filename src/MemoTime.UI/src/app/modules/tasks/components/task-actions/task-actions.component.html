@@ -4,7 +4,7 @@
             <div ngbDropdown class="d-inline-block">
                 <span id="dropdownBasic1" ngbDropdownToggle><i class="material-icons">more_horiz</i></span>
                 <div ngbDropdownMenu placement="top-right" class="task-actions" aria-labelledby="dropdown" >
-                    <button class="dropdown-item">Edytuj zadanie</button>
+                    <button class="dropdown-item" (click)="edit()">Edytuj zadanie</button>
                     <div class="dropdown-divider"></div>
                     <button (click)="delete()" class="dropdown-item">Usuń zadanie</button>
                 </div>

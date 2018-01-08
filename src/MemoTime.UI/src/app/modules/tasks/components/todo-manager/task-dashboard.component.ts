@@ -34,9 +34,11 @@ export class TodoManagerComponent implements OnInit {
     this.taskService.createTask(task)
         .subscribe(r =>
         {
+
           this.list.tasks.push(r)
         })
   }
+
 
   onEditTaskSubmitted(task: Task): void {
     this.taskService.editTask(task)
@@ -45,6 +47,13 @@ export class TodoManagerComponent implements OnInit {
         })
     }
 
+  onEditProjectSubmitted(project: Project): void {
+    this.projectService.editProject(project)
+        .subscribe(r =>
+        {
+        })
+  }
+
   onDeleteTaskSubmitted(task: Task): void {
     this.taskService.deleteTask(task)
         .subscribe(r => 
@@ -52,12 +61,24 @@ export class TodoManagerComponent implements OnInit {
           let index = this.list.tasks.findIndex(d => d.id == task.id)
           this.list.tasks.splice(index, 1)
         })
-  }  
+  }
+
+  onDeleteProjectSubmitted(project: Project): void {
+    this.projectService.deleteProject(project)
+        .subscribe(r =>
+        {
+            let index = this.projectList.findIndex(d => d.id == project.id)
+            this.projectList.splice(index, 1)
+            this.ngOnInit() // ZROBIONE NA PAŁE BO NIE ODSIEZA LISTY ZADAN Z USUNEITEGO PROJEKTU
+        })
+  }
+
 
   onCreateProjectSubmitted(project: Project): void {
+      console.log(project)
       this.projectService.createProject(project)
           .subscribe(r => {
-            this.ngOnInit()
+            this.ngOnInit() // MOZE DA SIE JAKOS INACZEJ
           });
   }
 
@@ -68,5 +89,9 @@ export class TodoManagerComponent implements OnInit {
 
   edit(value: string) : void {
     console.log(value)
+  }
+
+  log(): void {
+      console.log("dasd")
   }
 }

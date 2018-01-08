@@ -1,6 +1,6 @@
 
 <div *ngIf="!hidden">
-  <form (ngSubmit)="onSubmit(projectForm)" #projectForm="ngForm">
+  <form (ngSubmit)="processForm(projectForm)" #projectForm="ngForm">
     <div class="form-group">
       <input type="text" class="form-control" id="name"
              required
@@ -11,7 +11,7 @@
         Nazwa projektu jest wymagana
       </div>
     </div>
-    <button type="submit" class="btn btn-danger" [disabled]="!projectForm.form.valid">Dodaj</button>
+    <button type="submit" class="btn btn-danger" [disabled]="!projectForm.form.valid">{{subbmitActionName}}</button>
     <button (click)="hidden = !hidden" class="btn btn-default">Anuluj</button>
   </form>
 </div>

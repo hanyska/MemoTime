@@ -26,6 +26,14 @@ export class ProjectsService {
     return this.http.post(projectUrl, project, httpOptions)
   }
 
+  deleteProject(project: Project): Observable<any> {
+    return this.http.delete(projectUrl+'/'+project.id, httpOptions)
+  }
+
+  editProject(project: Project): Observable<any> {
+    return this.http.put(projectUrl+'/'+project.id, project, httpOptions)
+  }
+
   getProjects(): Observable<Project[]>{
     return this.http.get<Project[]>(projectUrl)
   }

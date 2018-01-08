@@ -11,7 +11,7 @@ import { Component, OnInit, EventEmitter, Input, Output, ElementRef, Renderer  }
 export class TaskActionsComponent implements OnInit {
   @Input() task: Task
   @Output() onDeleted = new EventEmitter<Task>()
-
+  @Output() onEditClicked = new EventEmitter()
   constructor(config: NgbDropdownConfig) {
   }
 
@@ -23,6 +23,10 @@ export class TaskActionsComponent implements OnInit {
 
   delete(): void {
     this.onDeleted.emit(this.task)
+  }
+
+  edit(): void {
+    this.onEditClicked.emit()
   }
 
 }

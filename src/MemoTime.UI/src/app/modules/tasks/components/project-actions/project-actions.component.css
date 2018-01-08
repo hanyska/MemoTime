@@ -1,0 +1,8 @@
+.task-actions-component {
+
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+

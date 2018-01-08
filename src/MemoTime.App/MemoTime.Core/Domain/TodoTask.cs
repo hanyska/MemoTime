@@ -17,11 +17,12 @@ namespace MemoTime.Core.Domain
             
         }
         
-        public TodoTask(Guid id, string name, Guid userId, Project project)
+        public TodoTask(Guid id, string name, Guid userId, Project project, DateTime dueDate)
         {
             Id = id;
             Name = name;
             UserId = userId;
+            DueDate = dueDate;
             CreatedAt = DateTime.UtcNow;
             Project = project;
         }

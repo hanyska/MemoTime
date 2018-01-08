@@ -23,7 +23,7 @@ namespace MemoTime.Infrastructure.Handlers.Tasks
         }
         public async Task HandleAsync(Create command)
         {
-            await _service.CreateAsync(command.Id, command.Name, command.UserId, command.ProjectId);
+            await _service.CreateAsync(command.Id, command.Name, command.UserId, command.ProjectId, command.DueDate);
             
             var task = await _service.GetAsync(command.Id);
 

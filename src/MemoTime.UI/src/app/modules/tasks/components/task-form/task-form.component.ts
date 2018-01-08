@@ -1,6 +1,17 @@
 import { Component, OnInit, EventEmitter, Input, Output, ElementRef, Renderer  } from '@angular/core';
 import {Task} from "../../../../sharded/models/Task";
 import { NgForm } from '@angular/forms';
+import {DateTime} from "../../../../sharded/utlity/DateTime";
+import {
+    NG_VALIDATORS,
+    FormsModule,
+    FormGroup,
+    FormControl,
+    ValidatorFn,
+    Validators
+} from '@angular/forms';
+
+import { Directive } from '@angular/core';
 @Component({
   selector: 'app-task-form',
   templateUrl: './task-form.component.html',
@@ -15,12 +26,13 @@ export class TaskFormComponent implements OnInit{
     datePickerHidden = true
     mode: string
     model: Task
+    modelConvertedDate: { year:number, month: number, day: number}
     submitted = false;
     subbmitActionName = 'Dodaj'
 
     constructor(private elementRef: ElementRef) { }
 
-    processForm(form: NgForm): void {
+    processForm(form: NgForm): void { //maybe it should be removed?
         if (this.mode == 'create') {
             this.create(form)
         } else {
@@ -28,17 +40,31 @@ export class TaskFormComponent implements OnInit{
         }
     }
     create(taskForm: NgForm) {
-        let t = new Task(this.model.name)
+        let t = new Task(undefined, null, this.model.name, DateTime.createByNumbers(
+            this.modelConvertedDate.year,
+            this.modelConvertedDate.month,
+            this.modelConvertedDate.day
+        ))
         this.onAdded.emit(t);
         this.submitted = true;
+
         taskForm.resetForm()
+
+        this.initModelConvertedDate()
     }
 
     edit(taskForm: NgForm) {
+        this.model.dueDate = DateTime.createByNumbers(
+            this.modelConvertedDate.year,
+            this.modelConvertedDate.month,
+            this.modelConvertedDate.day
+        )
         this.onEdited.emit(this.model)
         this.submitted = true
     }
 
+
+    //--------------- INIT SECTION ---------------- //
     ngOnInit(): void {
         if (this.task == null) {
             this.initAdd()
@@ -47,21 +73,61 @@ export class TaskFormComponent implements OnInit{
         }
     }
 
-    private initAdd(): void {
+    public initAdd(): void {
         this.mode = 'create'
-        this.model = new Task(null)
+        this.model = new Task(null, null, null, new Date())
+        this.initModelConvertedDate()
     }
 
-    private initEdit(): void {
+    public initEdit(): void {
         this.model = this.task
+        this.model.dueDate = DateTime.creteByString(this.task.dueDate.toString())
+        this.modelConvertedDate = {
+            year: this.model.dueDate.getFullYear(),
+            month: this.model.dueDate.getMonth()+1,
+            day: this.model.dueDate.getDate()
+        }
         this.mode = 'edit'
         this.subbmitActionName = 'Zapisz'
     }
 
-    onClickedInside(event: Event): void {
-        this.hidden = false;
+    private initModelConvertedDate(): void {
+        let date = new Date()
+        this.modelConvertedDate = {
+            year:date.getFullYear(),
+            month: date.getMonth()+1,
+            day: date.getDate()
+        }
     }
 
-    onClickedOutside(event: Event, hidden: boolean): void {
-    }
+
+}
+
+//Wuwa;o;c
+function dateValidator(control: FormControl) {
+        let date = new Date()
+        let day = control.value as {year: number, month: number, day: number}
+
+        if (day.day < date.getDate()) {
+            return {
+                dateValid: {
+                    valid: false
+                }
+            }
+        }
+    return null;
+}
+
+@Directive({
+    selector: '[dateValidator][ngModel]',
+    providers: [
+        {
+            provide: NG_VALIDATORS,
+            useValue: dateValidator,
+            multi: true
+        }
+    ]
+})
+ export  class  DateValidator {
+
 }

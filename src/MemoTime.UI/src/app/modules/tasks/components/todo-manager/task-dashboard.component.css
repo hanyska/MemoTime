@@ -196,3 +196,9 @@ nav
 .single-task .task-container {
     min-height: 35px;
 }
+
+.project-list-container .project-name {
+  font-size: 13pt;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}

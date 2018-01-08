@@ -24,11 +24,12 @@ import {RegisterComponent} from "./modules/users/components/register/register.co
 import {LogoutComponent} from "./modules/users/components/logout/logout.component";
 import {TokenMiddleware} from "./sharded/services/token.middleware";
 import {TodoManagerComponent} from "./modules/tasks/components/todo-manager/task-dashboard.component";
-import {TaskFormComponent} from "./modules/tasks/components/task-form/task-form.component";
+import {DateValidator, TaskFormComponent} from "./modules/tasks/components/task-form/task-form.component";
 import {TasksService} from "./modules/tasks/tasks.service";
 import {ProjectFormComponent} from "./modules/tasks/components/project-form/project-form.component";
 import {TaskActionsComponent} from "./modules/tasks/components/task-actions/task-actions.component";
 import { ClickOutsideModule } from 'ng-click-outside'
+import {ProjectActionsComponent} from "./modules/tasks/components/project-actions/project-actions.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,8 @@ import { ClickOutsideModule } from 'ng-click-outside'
     TaskFormComponent,
     ProjectFormComponent,
     TaskActionsComponent,
+    ProjectActionsComponent,
+    DateValidator
 
   ],
   imports: [

@@ -17,7 +17,7 @@ namespace MemoTime.Infrastructure.Ef
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Project>().HasMany(x => x.Tasks).WithOne(x => x.Project);
+            builder.Entity<Project>().HasMany(x => x.Tasks).WithOne(x => x.Project).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

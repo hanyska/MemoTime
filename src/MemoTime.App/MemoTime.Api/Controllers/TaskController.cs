@@ -30,7 +30,7 @@ namespace MemoTime.Api.Controllers
             var id = Guid.NewGuid();
             command.Id = id;
             command.UserId = UserId;
-
+            Console.WriteLine(command.DueDate.ToString());    
             await CommandDispatcher.DispatchAsync(command);
 
             var task = _cache.GetTask(command.Id);
