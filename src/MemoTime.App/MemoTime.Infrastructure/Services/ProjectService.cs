@@ -44,7 +44,7 @@ namespace MemoTime.Infrastructure.Services
             return _mapper.Map<ProjectDto>(project);
         }
 
-        public async Task<IEnumerable<ProjectDto>> BrowseAsync(Guid userId)
+        public async Task<IEnumerable<ProjectDto>> BrowseAsync(Guid userId) // Można wywalić chyba
         {
             var projects = await _projectRepository.BrowseAsync(userId);
 

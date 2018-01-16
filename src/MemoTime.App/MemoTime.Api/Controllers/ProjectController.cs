@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using MemoTime.Infrastructure;
 using MemoTime.Infrastructure.Commands.Projects;
 using MemoTime.Infrastructure.Extensions;
 using MemoTime.Infrastructure.Handlers;
@@ -15,12 +16,15 @@ namespace MemoTime.Api.Controllers
     public class ProjectController : ApiBaseController
     {
         private readonly IProjectService _projectService;
+        private readonly ITaskService _taskService;
         private readonly IMemoryCache _cache;
         
         public ProjectController(IProjectService projectService, 
-            ICommandDispatcher dispatcher, IMemoryCache cache): base(dispatcher)
+            ICommandDispatcher dispatcher, IMemoryCache cache,
+            ITaskService taskService): base(dispatcher)
         {
             _projectService = projectService;
+            _taskService = taskService;
             _cache = cache;
         }
         
@@ -31,11 +35,25 @@ namespace MemoTime.Api.Controllers
 
             return Json(projects);
         }
+
+        [HttpGet("{projectId}/tasks")]
+        public async Task<IActionResult> BrowseProjectTasks(Guid projectId)
+        {
+            var projectTasks = await _taskService.BrowseAsync(UserId, projectId);
+
+            return Json(projectTasks);
+        }
+        
         
         [HttpGet("{projectId}")]
         public async Task<IActionResult> Get(Guid projectId)
         {
-            var project = await _projectService.GetAsync(projectId);
+//            var project = await _projectService.GetAsync(projectId);
+            var project = await _taskService.BrowseTasksAsync(UserId, new TaskFilter
+            {
+                Type = "project",
+                Filter = projectId.ToString()
+            });
 
             return Json(project);
         }

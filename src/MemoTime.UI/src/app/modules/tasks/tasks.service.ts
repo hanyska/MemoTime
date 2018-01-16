@@ -33,4 +33,14 @@ export class TasksService {
   deleteTask(task: Task): Observable<any> {
       return this.http.delete(taskUrl+'/'+task.id, httpOptions)
   }
+
+  getFiltered(type:string): Observable<any> {
+      return this.http.get(taskUrl+'/filtered?type='+type, httpOptions)
+  }
+
+  finishTask(task: Task): Observable<any> {
+      return this.http.put(taskUrl+'/'+task.id+'/done', task, httpOptions)
+  }
+
+
 }

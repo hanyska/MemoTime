@@ -7,10 +7,12 @@ namespace MemoTime.Infrastructure.Services.Interfaces
 {
     public interface ITaskService
     {
-        Task CreateAsync(Guid id, string name, Guid userId, Guid projectId, DateTime dueDate);
         Task<TaskDto> GetAsync(Guid id);
-        Task<IEnumerable<TaskDto>> BrowseAsync(Guid projectId); //possilby to delete
+        Task CreateAsync(Guid id, string name, Guid userId, Guid projectId, DateTime dueDate);
+        Task<ProjectDto> BrowseAsync(Guid userId, Guid projectId);
+        Task<IEnumerable<ProjectDto>> BrowseTasksAsync(Guid userId, TaskFilter filter = null);
         Task RemoveAsync(Guid id);
         Task UpdateAsync(Guid taskId, Guid projectId, string name, DateTime dueDate);
+        Task FinishAsync(Guid taskId);
     }
 }

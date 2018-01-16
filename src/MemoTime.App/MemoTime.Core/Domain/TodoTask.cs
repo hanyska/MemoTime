@@ -11,6 +11,7 @@ namespace MemoTime.Core.Domain
         public string Label { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
         public DateTime DueDate { get; protected set; }
+        public bool Done { get; protected set; }
 
         protected TodoTask()
         {
@@ -25,6 +26,7 @@ namespace MemoTime.Core.Domain
             DueDate = dueDate;
             CreatedAt = DateTime.UtcNow;
             Project = project;
+            Done = false;
         }
 
         public void SetProject(Project project)
@@ -51,6 +53,11 @@ namespace MemoTime.Core.Domain
             }
                 
             DueDate = dueDate;
+        }
+
+        public void SetDone()
+        {
+            Done = true;
         }
     }
 }

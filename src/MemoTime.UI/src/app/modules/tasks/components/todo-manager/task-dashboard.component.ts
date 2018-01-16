@@ -13,7 +13,10 @@ import { take } from 'rxjs/operators/take';
 export class TodoManagerComponent implements OnInit {
 
   projectList : Project[]
-  list: Project
+  category: string
+  list: Array<Project>
+  defaultProjectId: number
+  canAddTask = true
 
   constructor(private projectService : ProjectsService, private taskService: TasksService) { }
 
@@ -25,17 +28,24 @@ export class TodoManagerComponent implements OnInit {
       {
         this.projectList = p
         this.projectService.getProject(p[0].id)
-            .subscribe(p => this.list = p)
+            .subscribe(p => {
+                this.list = new Array<Project>()
+                for(let pr of p)
+                {
+                   this.list.push(pr)
+                }
+            })
       })
   }
 
   onCreateTaskSubmitted(task: Task, id: number): void {
     task.projectId = id
+      console.log(id)
     this.taskService.createTask(task)
         .subscribe(r =>
         {
-
-          this.list.tasks.push(r)
+          let proj = this.list.find(x => x.id == id)
+          proj.tasks.push(r)
         })
   }
 
@@ -58,8 +68,9 @@ export class TodoManagerComponent implements OnInit {
     this.taskService.deleteTask(task)
         .subscribe(r => 
         {
-          let index = this.list.tasks.findIndex(d => d.id == task.id)
-          this.list.tasks.splice(index, 1)
+          let project = this.list.find(x => x.id == task.projectId)
+          let index = project.tasks.findIndex(d => d.id == task.id)
+          project.tasks.splice(index, 1)
         })
   }
 
@@ -73,18 +84,73 @@ export class TodoManagerComponent implements OnInit {
         })
   }
 
+  onDoneMarked(task: Task): void {
+      this.taskService.finishTask(task)
+          .subscribe(r => {
+              let project = this.list.find(x => x.id == task.projectId)
+              let index = project.tasks.findIndex(d => d.id == task.id)
+              project.tasks.splice(index, 1)
+          })
+  }
 
   onCreateProjectSubmitted(project: Project): void {
-      console.log(project)
       this.projectService.createProject(project)
           .subscribe(r => {
             this.ngOnInit() // MOZE DA SIE JAKOS INACZEJ
           });
   }
 
+  getExpiredTasks(): void {
+      this.taskService.getFiltered('expired')
+          .subscribe(r => {
+              this.category = "Zaległe"
+              this.list = r
+              this.canAddTask = false
+          })
+  }
+
+  getFinishedTasks():void {
+      this.taskService.getFiltered('finished')
+          .subscribe(r => {
+              this.category = "Zakończone"
+              this.list = r
+              this.canAddTask = false
+          })
+
+  }
+
+  getNextSevenDays():void {
+      this.taskService.getFiltered('next7days')
+          .subscribe(r => {
+              this.category = "Następne 7 dni"
+              this.list = r
+              this.canAddTask = false
+          })
+  }
+
+  getToday(): void {
+      this.taskService.getFiltered('today')
+          .subscribe(r => {
+              this.category = "Dziś"
+              this.list = r
+              this.canAddTask = false
+          })
+
+  }
+
   getProject(id: number): void {
+    this.defaultProjectId = id
+      console.log(id)
     this.projectService.getProject(id)
-      .subscribe(t => this.list = t)
+      .subscribe(t => {
+          this.list = new Array<Project>()
+          for(let pr of t)
+          {
+              this.list.push(pr)
+          }
+          this.canAddTask = true
+          this.category = ''
+      })
   }
 
   edit(value: string) : void {

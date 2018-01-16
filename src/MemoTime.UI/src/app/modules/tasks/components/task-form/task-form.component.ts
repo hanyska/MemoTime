@@ -21,6 +21,7 @@ export class TaskFormComponent implements OnInit{
     @Input() task: Task
     @Output() onAdded = new EventEmitter<Task>();
     @Output() onEdited = new EventEmitter<Task>();
+    @Output() onDoneMarked = new EventEmitter<Task>()
 
     hidden = true
     datePickerHidden = true
@@ -61,6 +62,11 @@ export class TaskFormComponent implements OnInit{
         )
         this.onEdited.emit(this.model)
         this.submitted = true
+    }
+
+    done():void {
+        this.task.done = true
+        this.onDoneMarked.emit(this.model)
     }
 
 

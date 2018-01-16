@@ -18,24 +18,26 @@
         <div class="left-menu-container">
           <ul>
             <li class="botton">
-      <span>
-        <a [routerLink]="['#']" preserveQueryParams preserveFragment><i class="material-icons icon-vertical-align ">today</i>Dzisiaj</a>
-      </span>
+                <a (click)="getToday()" [routerLink]="['']" fragment="today"><i class="material-icons icon-vertical-align ">today</i>Dzisiaj</a>
             </li>
+
             <li class="botton">
-              <a [routerLink]="['#']" preserveQueryParams preserveFragment><i class="material-icons icon-vertical-align ">today</i><span>Następne 7 dni</span></a></li>
+                <a (click)="getNextSevenDays()" [routerLink]="['']" fragment="next7days"><i class="material-icons icon-vertical-align ">today</i>Następne 7 dni</a>
+            </li>
+
+            <li class="botton">
+                <a (click)="getExpiredTasks()" [routerLink]="['']" fragment="expired"><i class="material-icons icon-vertical-align ">today</i>Zaległe</a>
+            </li>
+
+            <li class="botton">
+                <a (click)="getFinishedTasks()" [routerLink]="['']" fragment="finished" ><i class="material-icons icon-vertical-align ">today</i>Zakończone</a>
+            </li>
           </ul>
         </div>
-
       </div>
 
       <div>
         <div class="project-list-container">
-          <!--<ul [dragula]='"bag-one"' [dragulaModel]='projectList'>-->
-            <!--<li *ngFor="let project of projectList" (click)="getProject(project.id)">-->
-                <!--{{project.name}}-->
-            <!--</li>-->
-          <!--</ul>-->
             <div class="single-project" id="{{project.id}}"
                  *ngFor="let project of projectList">
                 <div class="row">
@@ -86,50 +88,80 @@
     <div class="col-sm-9 task-list">
         <div *ngIf="list">
             <div class="overflow-wrapper">
-            <div class="task-list-container">
-                <h5> {{ list.name }} </h5>
-              <hr>
-                <div class="single-task" id="{{task.id}}"
-                     *ngFor="let task of list.tasks">
-                    <div class="row task-container">
-                        <div *ngIf="editTask.hidden" class="col-lg-12"
-                             (mouseenter)="taskActions.hidden = !taskActions.hidden"
-                             (mouseleave)="taskActions.hidden = !taskActions.hidden">
-                            <div class="row">
-                                <div (click)="editTask.hidden = !editTask.hidden" class="col-lg-11 task-name">
-                                    {{ task.name }}
-                                </div>
+                <div class="task-list-container">
+                  <div>
+                      <h4>{{category}}</h4>
+                  </div>
+                  <div class="project-tasks" *ngFor="let project of list">
+                      <h6> <b>{{ project.name }}</b> </h6>
+                  <hr>
+                    <div class="single-task" id="{{task.id}}"
+                         *ngFor="let task of project.tasks">
+                        <div class="row task-container">
+                            <div *ngIf="editTask.hidden" class="col-lg-12"
+                                 (mouseenter)="taskActions.hidden = !taskActions.hidden"
+                                 (mouseleave)="taskActions.hidden = !taskActions.hidden">
+                                <div class="row">
+                                    <div class="col-lg-1 button-finished">
+                                        <button type="button" (click)="editTask.done()" class="btn btn-default btn-circle button-task-done" >
+                                            <i class="material-icons button-task-done-icon">done</i>
+                                        </button>
+                                    </div>
+                                    <div (click)="editTask.hidden = !editTask.hidden" class="col-lg-10 task-name">
+                                        {{ task.name }}
+                                    </div>
 
-                                <div class="col-lg-1 task-actions">
-                                    <app-task-actions
-                                            #taskActions
-                                            [task]="task"
-                                            (onDeleted)="onDeleteTaskSubmitted($event)"
-                                            (onEditClicked)="editTask.hidden = !editTask.hidden">
-                                    </app-task-actions>
+                                    <div class="col-lg-1 task-actions">
+                                        <app-task-actions
+                                                #taskActions
+                                                [task]="task"
+                                                (onDeleted)="onDeleteTaskSubmitted($event)"
+                                                (onEditClicked)="editTask.hidden = !editTask.hidden">
+                                        </app-task-actions>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 task-editor">
-                            <app-task-form #editTask
-                                [task]="task"
-                                (onEdited)="onEditTaskSubmitted($event)">
-                            </app-task-form>
+                            <div class="col-lg-12 task-editor">
+                                <app-task-form #editTask
+                                    [task]="task"
+                                    (onDoneMarked)="onDoneMarked($event)"
+                                    (onEdited)="onEditTaskSubmitted($event)">
+                                </app-task-form>
+                            </div>
                         </div>
                     </div>
+
+                      <div class="add-task" *ngIf="taskForm.hidden || canAddTask">
+                        <span (click)="taskForm.hidden = !taskForm.hidden">
+                            <span *ngIf="canAddTask"><i class="material-icons">add</i>Dodaj zadanie</span>
+                        </span>
+                      </div>
+
+                      <app-task-form #taskForm
+                                     (onAdded)="onCreateTaskSubmitted($event, project.id)">
+                      </app-task-form>
+
+                  </div>
+
+                    <div class="task-list-is-empty" *ngIf="list.length < 1">
+                        <div style="margin: 10% 30% auto; width: 100%;">
+                        <img class="img-responsive" src="assets/no_tasks.png"><br><br>
+                            Wszystkie zadania na dziś wykonane. Miłego dnia! <br><br><br>
+                        </div>
+                    </div>
+
                 </div>
 
-
                 <div class="add-task" *ngIf="taskForm.hidden">
-                    <span (click)="taskForm.hidden = !taskForm.hidden">
-                        <i class="material-icons">add</i>Dodaj zadanie
-                    </span>
+                        <span (click)="taskForm.hidden = !taskForm.hidden">
+                            <span *ngIf="canAddTask"><i class="material-icons">add</i>Dodaj zadanie</span>
+                        </span>
                 </div>
 
                 <app-task-form #taskForm
-                               (onAdded)="onCreateTaskSubmitted($event, list.id)">
+                               (onAdded)="onCreateTaskSubmitted($event, defaultProjectId)">
                 </app-task-form>
-            </div>
+
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+using MemoTime.Infrastructure;
 using MemoTime.Infrastructure.Commands.Tasks;
 using MemoTime.Infrastructure.Extensions;
 using MemoTime.Infrastructure.Handlers;
@@ -24,12 +25,23 @@ namespace MemoTime.Api.Controllers
             _cache = cache;
         }
 
+        [HttpGet("filtered")]
+        public async Task<IActionResult> Get([FromQuery] TaskFilter filter)
+        {
+            var tasks = await _taskService.BrowseTasksAsync(UserId, filter);
+            
+            Console.WriteLine(filter.Type);
+            
+            return Json(tasks);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Create command)
         {
             var id = Guid.NewGuid();
             command.Id = id;
             command.UserId = UserId;
+            Console.WriteLine($"ID:{command.ProjectId}");
             Console.WriteLine(command.DueDate.ToString());    
             await CommandDispatcher.DispatchAsync(command);
 
@@ -37,6 +49,17 @@ namespace MemoTime.Api.Controllers
             
             return Created("task/", task);
         }
+        
+        [HttpPut("{taskId}/done")]
+        public async Task<IActionResult> Put([FromRoute] Guid taskId, [FromBody] FinishTask command)
+        {
+            command.TaskId = taskId;
+
+            await CommandDispatcher.DispatchAsync(command);
+            
+            return NoContent();
+        }
+        
         
         [HttpPut("{taskId}")]
         public async Task<IActionResult> Put([FromRoute] Guid taskId, [FromBody] Update command)

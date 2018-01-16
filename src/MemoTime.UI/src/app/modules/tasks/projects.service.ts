@@ -38,8 +38,8 @@ export class ProjectsService {
     return this.http.get<Project[]>(projectUrl)
   }
 
-  getProject(id: number): Observable<Project> {
-      return this.http.get<Project>(projectUrl+"/"+id)
+  getProject(id: number): Observable<Project[]> {
+      return this.http.get<Project[]>(projectUrl+"/"+id)
   }
 }
 

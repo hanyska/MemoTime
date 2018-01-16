@@ -21,6 +21,31 @@ namespace MemoTime.Infrastructure.Repositories
         public async Task AddAsync(TodoTask task)
             => await Tasks.InsertOneAsync(task);
 
+        public Task<IEnumerable<TodoTask>> BrowseExpired(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<TodoTask>> BrowseCurrentDay(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<TodoTask>> BrowseFinished(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<TodoTask>> BrowseNextSevenDays(Guid userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<TodoTask>> BrowseProjectTasks(Guid projectId)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<TodoTask> GetAsync(Guid id)
             => await Tasks.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
 

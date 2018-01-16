@@ -10,5 +10,6 @@ namespace MemoTime.Infrastructure.Commands.Tasks
         public string Name { get; set; }
         public DateTime DueDate { get; set; }
         public string Priority { get; set; }
+        public bool Done { get; set; }
     }
 }
