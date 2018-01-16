@@ -70,9 +70,8 @@ export class ProjectFormComponent implements OnInit{
         this.mode = 'edit'
         this.subbmitActionName = 'Zapisz'
     }
-
-
-    // @Input()  name: string;
+	
+	// @Input()  name: string;
     // @Input() project: Project
     // @Output() onSubmitted = new EventEmitter<Project>();
     //
@@ -94,4 +93,6 @@ export class ProjectFormComponent implements OnInit{
     //     this.model = new Project();
     // }
 
+
+    
 }
