@@ -1,0 +1,16 @@
+.labels-list-container {
+    width: 300px;
+    border: 1px solid gray;
+}
+.labels-list-container ul {
+    padding: 0;
+}
+
+.labels-list-container ul li {
+    padding: 10px;
+    list-style: none;
+}
+
+.labels-list-container ul li:hover {
+    background-color: gray;
+}
