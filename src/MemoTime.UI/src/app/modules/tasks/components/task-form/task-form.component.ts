@@ -18,6 +18,7 @@ import { Directive } from '@angular/core';
   styleUrls: ['./task-form.component.css'],
 })
 export class TaskFormComponent implements OnInit{
+    @Input() projectId: number
     @Input() task: Task
     @Output() onAdded = new EventEmitter<Task>();
     @Output() onEdited = new EventEmitter<Task>();
@@ -50,7 +51,7 @@ export class TaskFormComponent implements OnInit{
         this.submitted = true;
 
         taskForm.resetForm()
-
+        console.log(this.projectId)
         this.initModelConvertedDate()
     }
 
@@ -106,7 +107,12 @@ export class TaskFormComponent implements OnInit{
         }
     }
 
-
+    onLabelSet(label: string) {
+        this.model.label = label
+        let task_name = this.model.name.split('@').shift()
+        this.model.name = ''
+        this.model.name = task_name + '@' + this.model.label
+    }
 }
 
 //Wuwa;o;c

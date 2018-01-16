@@ -27,6 +27,7 @@ export class TodoManagerComponent implements OnInit {
       .subscribe(p =>
       {
         this.projectList = p
+        this.defaultProjectId = p[0].id;
         this.projectService.getProject(p[0].id)
             .subscribe(p => {
                 this.list = new Array<Project>()
@@ -40,11 +41,16 @@ export class TodoManagerComponent implements OnInit {
 
   onCreateTaskSubmitted(task: Task, id: number): void {
     task.projectId = id
-      console.log(id)
     this.taskService.createTask(task)
         .subscribe(r =>
         {
-          let proj = this.list.find(x => x.id == id)
+            let proj = this.list.find(x => x.id == id)
+
+            if (!this.list.find(x => x.id == id)) {
+                proj = this.projectList.find(x => x.id == id)
+                this.list.push(proj)
+            }
+
           proj.tasks.push(r)
         })
   }
@@ -71,6 +77,11 @@ export class TodoManagerComponent implements OnInit {
           let project = this.list.find(x => x.id == task.projectId)
           let index = project.tasks.findIndex(d => d.id == task.id)
           project.tasks.splice(index, 1)
+
+          if (project.tasks.length < 1) {
+              let projectIndex = this.list.findIndex(x => x.id == project.id)
+              this.list.splice(projectIndex, 1)
+          }
         })
   }
 
@@ -90,6 +101,11 @@ export class TodoManagerComponent implements OnInit {
               let project = this.list.find(x => x.id == task.projectId)
               let index = project.tasks.findIndex(d => d.id == task.id)
               project.tasks.splice(index, 1)
+
+              if (project.tasks.length < 1) {
+                  let projectIndex = this.list.findIndex(x => x.id == project.id)
+                  this.list.splice(projectIndex, 1)
+              }
           })
   }
 

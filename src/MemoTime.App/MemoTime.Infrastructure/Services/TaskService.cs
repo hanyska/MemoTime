@@ -75,7 +75,7 @@ namespace MemoTime.Infrastructure.Services
             var todoTasks = tasks.ToList();
 
             if (!todoTasks.Any())
-            {l
+            {
                 tasks = new List<TodoTask>();
                 
             }

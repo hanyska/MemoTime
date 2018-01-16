@@ -30,6 +30,7 @@ import {ProjectFormComponent} from "./modules/tasks/components/project-form/proj
 import {TaskActionsComponent} from "./modules/tasks/components/task-actions/task-actions.component";
 import { ClickOutsideModule } from 'ng-click-outside'
 import {ProjectActionsComponent} from "./modules/tasks/components/project-actions/project-actions.component";
+import {LabelsComponent} from "./modules/tasks/components/labels/labels.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import {ProjectActionsComponent} from "./modules/tasks/components/project-action
     ProjectFormComponent,
     TaskActionsComponent,
     ProjectActionsComponent,
-    DateValidator
+    DateValidator,
+    LabelsComponent
 
   ],
   imports: [

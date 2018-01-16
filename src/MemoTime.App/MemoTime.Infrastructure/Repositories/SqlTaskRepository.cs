@@ -35,7 +35,8 @@ namespace MemoTime.Infrastructure.Repositories
             return await _context.Tasks
                 .Include(x => x.Project)
                 .Where(x => x.Project.UserId == userId)
-                .Where(x => x.DueDate < DateTime.UtcNow)
+                .Where(x => x.DueDate.Date < DateTime.UtcNow.Date)
+                .Where(x => x.Done == false)
                 .ToListAsync();
         }
         
@@ -45,6 +46,7 @@ namespace MemoTime.Infrastructure.Repositories
                 .Include(x => x.Project)
                 .Where(x => x.Project.UserId == userId)
                 .Where(x => x.DueDate.Date == DateTime.UtcNow.Date)
+                .Where(x => x.Done == false)
                 .ToListAsync();
         }
         
@@ -53,7 +55,8 @@ namespace MemoTime.Infrastructure.Repositories
             return await _context.Tasks
                 .Include(x => x.Project)
                 .Where(x => x.Project.UserId == userId)
-                .Where(x => x.DueDate >= DateTime.UtcNow && x.DueDate < DateTime.UtcNow.AddDays(7))
+                .Where(x => x.DueDate.Date >= DateTime.UtcNow.Date && x.DueDate.Date < DateTime.UtcNow.AddDays(7).Date)
+                .Where(x => x.Done == false)
                 .ToListAsync();
         }
         

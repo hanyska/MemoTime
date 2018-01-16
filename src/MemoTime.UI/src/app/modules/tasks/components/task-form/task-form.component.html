@@ -1,7 +1,7 @@
 
 <div *ngIf="!hidden" class="task-form" >
   <form (ngSubmit)="processForm(taskForm)" #taskForm="ngForm">
-    <div class="form-group row">
+    <div class="form-group row single-form-input">
       <div class="col-lg-9 task-name">
           <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
           <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
@@ -23,6 +23,10 @@
           </div>
       </div>
     </div>
+    <div class="label">
+        <app-labels [taskName]="model.name" (onLabelSet)="onLabelSet($event)"></app-labels>
+    </div>
+
     <button type="submit" class="btn btn-danger" [disabled]="!taskForm.form.valid">{{subbmitActionName}}</button>
     <button (click)="hidden = !hidden" class="btn btn-default">Anuluj</button>
   </form>

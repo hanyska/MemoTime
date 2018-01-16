@@ -131,7 +131,7 @@
                         </div>
                     </div>
 
-                      <div class="add-task" *ngIf="taskForm.hidden || canAddTask">
+                      <div class="add-task" *ngIf="taskForm.hidden && canAddTask">
                         <span (click)="taskForm.hidden = !taskForm.hidden">
                             <span *ngIf="canAddTask"><i class="material-icons">add</i>Dodaj zadanie</span>
                         </span>
@@ -150,18 +150,18 @@
                         </div>
                     </div>
 
-                </div>
-
-                <div class="add-task" *ngIf="taskForm.hidden">
-                        <span (click)="taskForm.hidden = !taskForm.hidden">
+                    <div class="add-task" *ngIf="tForm.hidden && list.length < 1">
+                        <span (click)="tForm.hidden = !tForm.hidden">
                             <span *ngIf="canAddTask"><i class="material-icons">add</i>Dodaj zadanie</span>
                         </span>
+                    </div>
+
+                    <app-task-form #tForm
+                                   [projectId] = defaultProjectId
+                                   (onAdded)="onCreateTaskSubmitted($event, defaultProjectId)">
+                    </app-task-form>
+
                 </div>
-
-                <app-task-form #taskForm
-                               (onAdded)="onCreateTaskSubmitted($event, defaultProjectId)">
-                </app-task-form>
-
             </div>
         </div>
     </div>
