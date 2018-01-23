@@ -1,0 +1,8 @@
+<form class="navbar-form" role="search" #taskForm="ngForm">
+  <div class="input-group add-on">
+    <input class="form-control" placeholder="Szukaj..." [(ngModel)]="searchObject.searchString" name="searchString" id="srch-term" type="text" #name="ngModel">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit" (click)="search()"><i class="material-icons">search</i></button>
+    </div>
+  </div>
+</form>

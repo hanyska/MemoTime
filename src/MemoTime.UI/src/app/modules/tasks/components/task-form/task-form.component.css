@@ -1,0 +1,29 @@
+.task-name {
+    padding-right: 0;
+}
+
+.task-date {
+    padding-left: 0;
+}
+
+.single-form-input {
+    margin-bottom: 0;
+}
+
+.task-label-preview {
+    margin-bottom: 10px;
+}
+
+.task-label-preview .remove-label {
+    position: relative;
+    top: 7px;
+}
+.task-label-preview .label {
+    padding: 7px;
+    background-color: #b21f2d;
+    -moz-border-radius:10px 10px 10px 10px;  // rounds corners for firefox
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    font-weight: bold;
+    color: white;
+}

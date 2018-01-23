@@ -1,0 +1,177 @@
+<nav class="navbar fixed-top topnav">
+    <ul class="menu">
+        <div class="leftmenu">
+            <li><a href="#">MemoTime</a></li>
+        </div>
+
+        <div class="rightmenu">
+            <li><a [routerLink]="['account']" ><a href="#"><i class="material-icons">&#xE8B8;</i></a></a></li>
+            <div style="clear:both"></div>
+        </div>
+    </ul>
+
+</nav>
+<div class="container main-container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="left-menu">
+        <div class="left-menu-container">
+          <ul>
+            <li class="botton">
+                <a (click)="getToday()" [routerLink]="['']" fragment="today"><i class="material-icons icon-vertical-align ">today</i>Dzisiaj</a>
+            </li>
+
+            <li class="botton">
+                <a (click)="getNextSevenDays()" [routerLink]="['']" fragment="next7days"><i class="material-icons icon-vertical-align ">today</i>Następne 7 dni</a>
+            </li>
+
+            <li class="botton">
+                <a (click)="getExpiredTasks()" [routerLink]="['']" fragment="expired"><i class="material-icons icon-vertical-align ">today</i>Zaległe</a>
+            </li>
+
+            <li class="botton">
+                <a (click)="getFinishedTasks()" [routerLink]="['']" fragment="finished" ><i class="material-icons icon-vertical-align ">today</i>Zakończone</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="project-list-container">
+            <div class="single-project" id="{{project.id}}"
+                 *ngFor="let project of projectList">
+                <div class="row">
+                    <div *ngIf="editProject.hidden" class="col-lg-12"
+                         (mouseenter)="projectActions.hidden = !projectActions.hidden"
+                         (mouseleave)="projectActions.hidden = !projectActions.hidden">
+                        <div class="row">
+                            <div (click)="getProject(project.id)" class="col-lg-10 project-name">
+                                {{ project.name }}
+                            </div>
+
+                            <div class="col-lg-1 project-actions">
+                                <app-project-actions
+                                        #projectActions
+                                        [project]="project"
+                                        (onDeleted)="onDeleteProjectSubmitted($event)"
+                                        (onEditClicked)="editProject.hidden = !editProject.hidden">
+                                </app-project-actions>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 task-editor">
+                        <app-project-form #editProject
+                                       [project]="project"
+                                       (onEdited)="onEditProjectSubmitted($event)">
+                        </app-project-form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-project">
+                <div class="add-task" *ngIf="projectForm.hidden">
+                    <span (click)="projectForm.hidden = !projectForm.hidden">
+                        <i class="material-icons">add</i>Dodaj projekt
+                    </span>
+                </div>
+
+                <div class="edit-project">
+                    <app-project-form #projectForm
+                                      (onAdded)="onCreateProjectSubmitted($event)">
+                    </app-project-form>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9 task-list">
+        <div *ngIf="list">
+            <div class="overflow-wrapper">
+                <div class="task-list-container">
+                  <div class="search">
+                      <app-search (onSearch)="onSearch($event)"></app-search>
+                  </div>
+
+                  <div>
+                      <h4>{{category}}</h4>
+                  </div>
+
+                  <div class="project-tasks" *ngFor="let project of list">
+                      <h6> <b>{{ project.name }}</b> </h6>
+                  <hr>
+                    <div class="single-task" id="{{task.id}}"
+                         *ngFor="let task of project.tasks">
+                        <div class="row task-container">
+                            <div *ngIf="editTask.hidden" class="col-lg-12"
+                                 (mouseenter)="taskActions.hidden = !taskActions.hidden"
+                                 (mouseleave)="taskActions.hidden = !taskActions.hidden">
+                                <div class="row">
+                                    <div class="col-lg-1 button-finished">
+                                        <button type="button" (click)="editTask.done()" class="btn btn-default btn-circle button-task-done" >
+                                            <i class="material-icons button-task-done-icon">done</i>
+                                        </button>
+                                    </div>
+                                    <div (click)="editTask.hidden = !editTask.hidden" class="col-lg-10 task-name">
+                                        {{ task.name }}
+                                    </div>
+
+                                    <div class="col-lg-1 task-actions">
+                                        <app-task-actions
+                                                #taskActions
+                                                [task]="task"
+                                                (onDeleted)="onDeleteTaskSubmitted($event)"
+                                                (onEditClicked)="editTask.hidden = !editTask.hidden">
+                                        </app-task-actions>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 task-editor">
+                                <app-task-form #editTask
+                                    [task]="task"
+                                    (onDoneMarked)="onDoneMarked($event)"
+                                    (onEdited)="onEditTaskSubmitted($event)">
+                                </app-task-form>
+                            </div>
+                        </div>
+                    </div>
+
+                      <div class="add-task" *ngIf="taskForm.hidden && canAddTask">
+                        <span (click)="taskForm.hidden = !taskForm.hidden">
+                            <span *ngIf="canAddTask"><i class="material-icons">add</i>Dodaj zadanie</span>
+                        </span>
+                      </div>
+
+                      <app-task-form #taskForm
+                                     [projectId] = project.id
+                                     (onAdded)="onCreateTaskSubmitted($event, project.id)">
+                      </app-task-form>
+
+                  </div>
+
+                    <div class="task-list-is-empty" *ngIf="list.length < 1">
+                        <div style="margin: 10% 30% auto; width: 100%;">
+                        <img class="img-responsive" src="assets/no_tasks.png"><br><br>
+                            Wszystkie zadania na dziś wykonane. Miłego dnia! <br><br><br>
+                        </div>
+                    </div>
+
+                    <div class="add-task" *ngIf="tForm.hidden && list.length < 1">
+                        <span (click)="tForm.hidden = !tForm.hidden">
+                            <span *ngIf="canAddTask"><i class="material-icons">add</i>Dodaj zadanie</span>
+                        </span>
+                    </div>
+
+                    <app-task-form #tForm
+                                   [projectId] = defaultProjectId
+                                   (onAdded)="onCreateTaskSubmitted($event, defaultProjectId)">
+                    </app-task-form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
+

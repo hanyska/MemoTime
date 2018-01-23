@@ -1,0 +1,42 @@
+
+<div *ngIf="!hidden" class="task-form" >
+    <div class="task-label-preview" *ngIf="model.label != null">
+        <span class="label rounded">#{{model.label.name}}
+            <span class="remove-label" (click)="removeLabel();">
+                <i class="material-icons">clear</i>
+            </span>
+        </span>
+    </div>
+
+    <form (ngSubmit)="processForm(taskForm)" #taskForm="ngForm">
+    <div class="form-group row single-form-input">
+      <div class="col-lg-9 task-name">
+          <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Nazwa zadania jest wymagana
+          </div>
+      </div>
+      <div class="col-lg-3 task-date">
+          <div class="input-group">
+              <input class="form-control" placeholder="yyyy-mm-dd"
+                     id ="dueDate"
+                     name="dueDate"
+                     required
+                     ngbDatepicker #d2="ngbDatepicker"
+                     [(ngModel)]="modelConvertedDate"
+                     #dueDate="ngModel">
+              <button class="input-group-addon" (click)="d2.toggle()" type="button">
+                  <i class="material-icons">date_range</i>
+              </button>
+          </div>
+      </div>
+    </div>
+    <div class="label">
+        <app-labels [taskName]="model.name" (onLabelSet)="onLabelSet($event)"></app-labels>
+    </div>
+
+    <button type="submit" class="btn btn-danger" [disabled]="!taskForm.form.valid">{{subbmitActionName}}</button>
+    <button (click)="hidden = !hidden" class="btn btn-default">Anuluj</button>
+  </form>
+</div>
+

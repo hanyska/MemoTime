@@ -1,0 +1,117 @@
+.container
+{
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+h2
+{
+  font-size: 48px;
+  color: darkslategray;
+  letter-spacing: 1px;
+}
+
+.form
+{
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  margin-top: 50px;
+  padding: 50px;
+  border-radius: 10px;
+  background-image: url("light_grey.png");
+  box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+  -moz-box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+  -webkit-box-shadow: 3px 3px 30px 5px rgba(204,204,204,0.9);
+}
+
+.form label
+{
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #555555;
+}
+
+.form input
+{
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.form input:focus
+{
+  outline: none;
+  border: 1px solid #db4c3f;
+}
+
+button
+{
+  color: white;
+  background-color: #aaaaaa;
+  width: 150px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 8px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+
+}
+
+button:hover
+{
+  background-color: #EE6060;
+  border: 1px solid #ee6060;
+}
+
+
+
+
+.tab-group {
+  list-style: none;
+}
+.tab-group:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  margin-bottom: 40px;
+  margin-right: 10px;
+  background: gray;
+  color: gray;
+  font-size: 20px;
+  float: left;
+  width: 40%;
+  text-align: center;
+  cursor: pointer;
+  transition: .5s ease;
+}
+li a:hover {
+   background: grey;
+   color: white;
+}
+
+.active a {
+  background: lightcoral;
+  color: white;
+}
+
+.active2 a {
+  background: grey;
+  color: white;
+}
+
+.active2 a:hover
+{
+  background: lightgray;
+}

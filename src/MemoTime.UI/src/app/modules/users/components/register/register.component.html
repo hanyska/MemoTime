@@ -1,0 +1,35 @@
+
+  <div class="container">
+
+
+    <h2>Stwórz konto <font color="#db4c3f">MemoTime</font>!</h2>
+
+    <form (ngSubmit)="onSubmit()" ngNativeValidate #registerForm="ngForm" class="form">
+    <div>
+      {{message}}
+    </div>
+      <ul class="tab-group">
+          <li class="active"><a [routerLink]="['/register']">Zarejestruj się</a></li>
+          <li class="active2"><a [routerLink]="['/login']">Zaloguj się</a></li>
+      </ul>
+
+      <div class="form-group">
+        <label for="name" >Nazwa użytkownika</label>
+        <input type="text" class="form-control"  id="name"  placeholder="np. JanKowalski"required [(ngModel)]="model.username" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="jankowalski@gmail.com" required [(ngModel)]="model.email" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Hasło</label>
+        <input type="password" class="form-control"  id="password"  placeholder="np. *******"  required [(ngModel)]="model.password" name="name">
+      </div>
+
+
+      <button type="submit" class="btn btn-success">Zarejestruj się</button>
+      <button type="reset" class="btn btn-reset">Wyczyść</button>
+    </form>
+  </div>

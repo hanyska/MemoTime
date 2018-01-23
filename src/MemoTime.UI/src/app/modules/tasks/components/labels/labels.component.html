@@ -2,7 +2,7 @@
   <ul>
     <li *ngIf="labelsToShow.length < 1" (click)="setLabel(currentLabel)">Utwórz etykietę</li>
     <li *ngFor="let label of labelsToShow" (click)="setLabel(label)">
-      <i class="material-icons">label</i> {{label}}
+      <i class="material-icons">label</i> {{label.name}}
     </li>
   </ul>
 </div>
