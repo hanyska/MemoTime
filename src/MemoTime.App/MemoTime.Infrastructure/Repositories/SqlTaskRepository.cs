@@ -25,6 +25,7 @@ namespace MemoTime.Infrastructure.Repositories
         {
             return await _context.Tasks
                 .Include(x => x.Project)
+                .Include(x => x.Label)
                 .Where(x => x.Project.Id == projectId)
                 .Where(x => x.Done == false)
                 .ToListAsync();
@@ -34,6 +35,7 @@ namespace MemoTime.Infrastructure.Repositories
         {
             return await _context.Tasks
                 .Include(x => x.Project)
+                .Include(x => x.Label)
                 .Where(x => x.Project.UserId == userId)
                 .Where(x => x.DueDate.Date < DateTime.UtcNow.Date)
                 .Where(x => x.Done == false)
@@ -44,6 +46,7 @@ namespace MemoTime.Infrastructure.Repositories
         {
             return await _context.Tasks
                 .Include(x => x.Project)
+                .Include(x => x.Label)
                 .Where(x => x.Project.UserId == userId)
                 .Where(x => x.DueDate.Date == DateTime.UtcNow.Date)
                 .Where(x => x.Done == false)
@@ -54,6 +57,7 @@ namespace MemoTime.Infrastructure.Repositories
         {
             return await _context.Tasks
                 .Include(x => x.Project)
+                .Include(x => x.Label)
                 .Where(x => x.Project.UserId == userId)
                 .Where(x => x.DueDate.Date >= DateTime.UtcNow.Date && x.DueDate.Date < DateTime.UtcNow.AddDays(7).Date)
                 .Where(x => x.Done == false)
@@ -64,8 +68,20 @@ namespace MemoTime.Infrastructure.Repositories
         {
             return await _context.Tasks
                 .Include(x => x.Project)
+                .Include(x => x.Label)
                 .Where(x => x.Project.UserId == userId)
                 .Where(x => x.DueDate < DateTime.UtcNow)
+                .Where(x => x.Done)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<TodoTask>> BrowseAsync(Guid userId)
+        {
+            return await _context.Tasks
+                .Include(x => x.Project)
+                .Include(x => x.Label)
+                .Where(x => x.Project.UserId == userId)
+                .Where(x => x.Done != true)
                 .ToListAsync();
         }
         

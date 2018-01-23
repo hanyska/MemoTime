@@ -1,4 +1,5 @@
 ﻿using System;
+using MemoTime.Core.Domain;
 using MemoTime.Infrastructure.DTO;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -23,5 +24,11 @@ namespace MemoTime.Infrastructure.Extensions
 
         public static TokenDto GetToken(this IMemoryCache cache, Guid tokenId)
             => cache.Get<TokenDto>($"token-{tokenId}");
+
+        public static void SetLabel(this IMemoryCache cache, LabelDto label)
+            => cache.Set($"label-{label.Id}", label, TimeSpan.FromSeconds(5));
+
+        public static LabelDto GetLabel(this IMemoryCache cache, Guid id)
+            => cache.Get<LabelDto>($"label-{id}");
     }
 }

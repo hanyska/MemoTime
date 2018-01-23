@@ -26,7 +26,10 @@ namespace MemoTime.Infrastructure.Ioc.Modules
             builder.RegisterType<TaskService>()
                 .As<ITaskService>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<LabelService>()
+                .As<ILabelService>()
+                .InstancePerLifetimeScope();
         }
-        
     }
 }

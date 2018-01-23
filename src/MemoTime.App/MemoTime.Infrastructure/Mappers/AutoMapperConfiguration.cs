@@ -12,6 +12,8 @@ namespace MemoTime.Infrastructure.Mappers
                 {
                     cfg.CreateMap<Project, ProjectDto>();
                     cfg.CreateMap<TodoTask, TaskDto>();
+                    cfg.CreateMap<Label, LabelDto>()
+                        .ForMember(src => src.Name, x => x.MapFrom(z => z.Name));
                 })
         .CreateMapper();
     }

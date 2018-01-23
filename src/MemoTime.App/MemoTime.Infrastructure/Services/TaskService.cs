@@ -18,14 +18,21 @@ namespace MemoTime.Infrastructure.Services
     {
         private readonly ITaskRepository _taskRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly ILabelRepository _labelRepository;
         private readonly IMapper _mapper;
 
-        public TaskService(ITaskRepository taskRepository, IMapper mapper,
-            IProjectRepository projectRepository)
+        public TaskService
+        (
+            ITaskRepository taskRepository, 
+            IMapper mapper,
+            IProjectRepository projectRepository,
+            ILabelRepository labelRepository
+        )
         {
             _taskRepository = taskRepository;
             _mapper = mapper;
             _projectRepository = projectRepository;
+            _labelRepository = labelRepository;
         }
 
         public async Task<TaskDto> GetAsync(Guid id)
@@ -67,7 +74,30 @@ namespace MemoTime.Infrastructure.Services
                     break;
                     
                 default:
-                    tasks = await _taskRepository.BrowseExpired(userId);
+                    tasks = await _taskRepository.BrowseAsync(userId);
+
+                    if (filter.ByTag)
+                    {
+                        tasks = tasks
+                            .Where(x => x.Label != null)
+                            .Where(x => x.Label.Name.ToLowerInvariant()
+                                .Replace(" ", "")
+                                .Contains(filter.SearchName.Replace(" ", "")
+                                    .ToLowerInvariant()
+                                )
+                            );
+                    }
+                    else
+                    {
+                        tasks = tasks
+                            .Where(x => x.Name.ToLowerInvariant()
+                                .Replace(" ", "")
+                                .Contains(filter.SearchName.Replace(" ", "")
+                                    .ToLowerInvariant()
+                                )
+                            );
+                    }
+                    
                     break;
             }
             
@@ -86,13 +116,18 @@ namespace MemoTime.Infrastructure.Services
             );
 
             var browseExpiredAsync = projects.ToList();
+
+
             foreach (var project in browseExpiredAsync)
             {
-                project.Tasks
-                    .ToList()
-                    .AddRange(
-                        _mapper.Map<IEnumerable<TaskDto>>(todoTasks.Where(x => x.Project.Id == project.Id))
-                    );
+                project.Tasks = new List<TaskDto>();    
+            }
+            
+            foreach (var project in browseExpiredAsync)
+            {
+                var filteredTasks = todoTasks.Where(x => x.Project.Id == project.Id);
+
+                project.Tasks = _mapper.Map<IEnumerable<TaskDto>>(filteredTasks);
 
             }
 
@@ -135,10 +170,25 @@ namespace MemoTime.Infrastructure.Services
             {
                 throw new ServiceException(ErrorCodes.ProjectNotExist);
             }
-
+            
             task.SetProject(project);
             task.SetName(name);
             task.SetDueDate(dueDate);
+
+            await _taskRepository.UpdateAsync(task);
+        }
+
+        public async Task UpdateLabelAsync(Guid taskId, Guid labelId)
+        {
+            var task = await _taskRepository.GetAsync(taskId);
+
+            if (task == null)
+            {
+                throw new ServiceException(ErrorCodes.TaskNotExist);
+            }
+
+            var label = await _labelRepository.GetAsync(labelId, task.UserId);
+            task.SetLabel(label);
 
             await _taskRepository.UpdateAsync(task);
         }

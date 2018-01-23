@@ -19,6 +19,10 @@ namespace MemoTime.Infrastructure.Ioc.Modules
             builder.RegisterType<InMemoryTaskRepository>()
                 .As<ITaskRepository>()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<SqlLabelRepository>()
+                .As<ILabelRepository>()
+                .InstancePerLifetimeScope();
         }        
     }
 }

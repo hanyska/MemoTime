@@ -1,4 +1,6 @@
 ﻿using System;
+using MemoTime.Core.Domain;
+using MemoTime.Infrastructure.DTO;
 using MemoTime.Infrastructure.Handlers;
 
 namespace MemoTime.Infrastructure.Commands.Tasks
@@ -11,5 +13,6 @@ namespace MemoTime.Infrastructure.Commands.Tasks
         public DateTime DueDate { get; set; }
         public string Priority { get; set; }
         public bool Done { get; set; }
+        public LabelDto Label { get; set; }
     }
 }

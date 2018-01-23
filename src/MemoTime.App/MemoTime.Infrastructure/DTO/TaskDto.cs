@@ -9,5 +9,6 @@ namespace MemoTime.Infrastructure.DTO
         public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime DueDate { get; set; }
+        public LabelDto Label { get; set; }
     }
 }

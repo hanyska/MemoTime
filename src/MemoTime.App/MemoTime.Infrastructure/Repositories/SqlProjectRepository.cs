@@ -21,6 +21,7 @@ namespace MemoTime.Infrastructure.Repositories
         public async Task<Project> GetAsync(Guid id)
             => await _context.Projects
                 .Include(x => x.Tasks)
+                .ThenInclude(x => x.Label)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task<IEnumerable<Project>> BrowseAsync(Guid userId)
